@@ -1,0 +1,26 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "react-app",
+        "react-app/jest"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "no-console": "off",
+        "no-plusplus": "off",
+        "no-undef": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-vars": "off",
+        "operator-linebreak": "off",
+        "import/named": "off",
+        "comma-dangle": "off",
+        "import/prefer-default-export": "off",
+        "quotes": ["error", "double"],
+        "indent": ["error", 4]
+    }
+}
