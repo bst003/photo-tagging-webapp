@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/base.scss";
+import "normalize.css";
 import reportWebVitals from "./reportWebVitals";
 
 /*
@@ -40,8 +41,10 @@ GAMEFLOW
         - Once the view loads the timer will start to count down
             - Where to store timer ingo?
         - User will be able to click on picture element and will track clicks with Mouse 
-          Event (clientX/Y) + 100 or so px in each direction (USE SOMETHING DYNAMIC LIKE PERCENT)
+          Event (offsetX/Y) + 100 or so px in each direction (USE SOMETHING DYNAMIC LIKE PERCENT)
           https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
+            - offsetX returns value in px. That will have to be converted to percents and 
+              then use those percents to render the targeter
         - When user clicks a dropdown of options will be shown with the name of each character.
             - The dropdown will remove items already found
         - Will then verify if those coordinates match what is stored in Firebase for the 
