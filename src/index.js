@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+import "./assets/scss/base.scss";
 import reportWebVitals from "./reportWebVitals";
 
 /*
@@ -41,7 +40,7 @@ GAMEFLOW
         - Once the view loads the timer will start to count down
             - Where to store timer ingo?
         - User will be able to click on picture element and will track clicks with Mouse 
-          Event (clientX/Y) + 100 or so px in each direction
+          Event (clientX/Y) + 100 or so px in each direction (USE SOMETHING DYNAMIC LIKE PERCENT)
           https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/clientX
         - When user clicks a dropdown of options will be shown with the name of each character.
             - The dropdown will remove items already found
@@ -59,7 +58,8 @@ GAMEFLOW
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <App />
+        {/* <App /> */}
+        Hello World
     </React.StrictMode>
 );
 
