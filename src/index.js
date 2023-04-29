@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/base.scss";
 import "normalize.css";
 import reportWebVitals from "./reportWebVitals";
+
+import RouteSwitch from "./RouteSwitch";
 
 /*
 
@@ -63,6 +65,7 @@ root.render(
     <React.StrictMode>
         {/* <App /> */}
         Hello World
+        <RouteSwitch></RouteSwitch>
     </React.StrictMode>
 );
 
