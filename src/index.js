@@ -39,6 +39,9 @@ GAMEFLOW
     1. User lands on start page that has two options, Start Game and Leaderboard
         - Start Game leads to Game View
         - Leaderboard leads to Leaderboard view
+        - User will click start game btn which will lead to Game view
+            - This will set a gameLevelId (working title) state which will then be used 
+              to query necessary info from FireBase
     2. User lands on the Game page
         - Once the view loads the timer will start to count down
             - Where to store timer ingo?
@@ -57,6 +60,12 @@ GAMEFLOW
           enter their name and submit their score. This will be a popup or a whole new view.
             - This popup/view will also have buttons to restart and view leaderboard
     3. 
+
+FIREBASE
+    - Games
+        - Each document will have two fields gameLevelId and characters (array of objects/maps).
+    - Leaderboards
+        - Will have to store an entry for each user, will also have to store which gameLevelId it is for
 
 */
 
