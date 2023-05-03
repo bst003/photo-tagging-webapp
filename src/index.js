@@ -6,6 +6,24 @@ import reportWebVitals from "./reportWebVitals";
 
 import RouteSwitch from "./RouteSwitch";
 
+import { initializeApp } from "firebase/app";
+import { getFirebaseConfig } from "./firebaseConfig.js";
+
+import {
+    getFirestore,
+    collection,
+    doc,
+    addDoc,
+    deleteDoc,
+    getDocs,
+    updateDoc,
+    query,
+    serverTimestamp,
+    where,
+    orderBy,
+    collectionGroup,
+} from "firebase/firestore/lite";
+
 /*
 
 TOOLS/KITS TO TRY/INCLUDE
@@ -65,15 +83,68 @@ FIREBASE
     - Games
         - Each document will have two fields gameLevelId and characters (array of objects/maps).
     - Leaderboards
+        - Data stored
+            - Player Name
+            - Unique ID
+            - Time
+            - game level ID
         - Will have to store an entry for each user, will also have to store which gameLevelId it is for
 
 */
 
+const firebaseAppConfig = getFirebaseConfig();
+initializeApp(firebaseAppConfig);
+
+const getLevels = async () => {
+    try {
+        console.log(getFirestore());
+        const levelsQuery = query(collection(getFirestore(), "gameLevels"));
+        console.log(levelsQuery);
+
+        const levelsQuerySnapshot = await getDocs(levelsQuery);
+        levelsQuerySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+        });
+    } catch (error) {
+        console.log("sign out error: " + error);
+    }
+};
+
+getLevels();
+
+// rules_version = '2';
+
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     // Games Levels:
+//     //   - Anyone can read.
+//     //   - No one can create, update or delete
+//     match /gamesLevels/{gameLevelId} {
+//       allow read: if true;
+//       allow create, update, delete: if false;
+//     }
+//     // Game Scores:
+//     //   - Anyone can read or create.
+//     //   - No one can update or delete
+//     match /gameScores/{gameScoreId} {
+//       allow read, create;
+//       allow update, delete: if false;
+//     }
+//   }
+// }
+
+// async function getCities(db) {
+//     const citiesCol = collection(db, "gameLevels");
+//     const citySnapshot = await getDocs(citiesCol);
+//     const cityList = citySnapshot.docs.map((doc) => doc.data());
+//     return cityList;
+// }
+
+// console.log(getCities(db));
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        {/* <App /> */}
-        Hello World
         <RouteSwitch></RouteSwitch>
     </React.StrictMode>
 );
