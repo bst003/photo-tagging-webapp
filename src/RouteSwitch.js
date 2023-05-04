@@ -6,6 +6,7 @@ import MainLayout from "./MainLayout";
 
 import Game from "./views/Game";
 import Home from "./views/Home";
+import Leaderboard from "./views/Leaderboard";
 import NotFound from "./views/NotFound";
 
 const RouteSwitch = () => {
@@ -15,6 +16,7 @@ const RouteSwitch = () => {
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/play" element={<Game />} />
+                    <Route path="/leaderboard" element={<Leaderboard />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>

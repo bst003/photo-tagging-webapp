@@ -76,6 +76,9 @@ FIREBASE
             - game level ID
         - Will have to store an entry for each user, will also have to store which gameLevelId it is for
 
+Layout
+    - Game screen will have sidebar
+
 */
 
 const firebaseAppConfig = getFirebaseConfig();
