@@ -2,27 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/base.scss";
 import "normalize.css";
-import reportWebVitals from "./reportWebVitals";
 
 import RouteSwitch from "./RouteSwitch";
 
 import { initializeApp } from "firebase/app";
 import { getFirebaseConfig } from "./firebaseConfig.js";
 
-import {
-    getFirestore,
-    collection,
-    doc,
-    addDoc,
-    deleteDoc,
-    getDocs,
-    updateDoc,
-    query,
-    serverTimestamp,
-    where,
-    orderBy,
-    collectionGroup,
-} from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs, query } from "firebase/firestore/lite";
 
 /*
 
@@ -112,44 +98,9 @@ const getLevels = async () => {
 
 getLevels();
 
-// rules_version = '2';
-
-// service cloud.firestore {
-//   match /databases/{database}/documents {
-//     // Games Levels:
-//     //   - Anyone can read.
-//     //   - No one can create, update or delete
-//     match /gamesLevels/{gameLevelId} {
-//       allow read: if true;
-//       allow create, update, delete: if false;
-//     }
-//     // Game Scores:
-//     //   - Anyone can read or create.
-//     //   - No one can update or delete
-//     match /gameScores/{gameScoreId} {
-//       allow read, create;
-//       allow update, delete: if false;
-//     }
-//   }
-// }
-
-// async function getCities(db) {
-//     const citiesCol = collection(db, "gameLevels");
-//     const citySnapshot = await getDocs(citiesCol);
-//     const cityList = citySnapshot.docs.map((doc) => doc.data());
-//     return cityList;
-// }
-
-// console.log(getCities(db));
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <RouteSwitch></RouteSwitch>
     </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
