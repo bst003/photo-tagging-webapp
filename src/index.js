@@ -79,6 +79,9 @@ FIREBASE
 Layout
     - Game screen will have sidebar
 
+Security
+    - Sanitize inputs!
+
 */
 
 const firebaseAppConfig = getFirebaseConfig();

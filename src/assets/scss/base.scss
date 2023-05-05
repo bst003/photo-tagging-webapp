@@ -5,10 +5,13 @@
 
     --darkBlue: #141B41;
     --yellow: #FFBD11;
-    --darkYellow: #6B4D00;
+    --darkYellow: #CC9200;
     --red: #F04C34;
+
+    --siteHorizonalPadding: 20px;
+    --siteContentWidth: 1140px;
 }
 
 body{
-    background-color: red;
+    background-color: var(--offWhite);
 }
