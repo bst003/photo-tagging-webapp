@@ -12,15 +12,29 @@ const Header = (props) => {
             margin: 0 auto;
             max-width: var(--siteContentWidth);
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    `;
+
+    const SiteLogo = styled.div`
+        &.h2 {
+            margin: 0px;
+        }
+
+        a {
+            color: var(--offWhite);
+            text-decoration: none;
         }
     `;
 
     return (
         <SiteHeader className="site-header">
             <div className="inner">
-                <div className="site-logo">
+                <SiteLogo className="site-logo h2">
                     <Link to="/">Photo Tagging</Link>
-                </div>
+                </SiteLogo>
                 Test
             </div>
         </SiteHeader>
