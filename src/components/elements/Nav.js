@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import "./Nav.scss";
+
 const Nav = () => {
     const [navState, setNavState] = useState("closed");
     const { pathname } = useLocation();
@@ -43,7 +45,7 @@ const Nav = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/shop">Shop</Link>
+                        <Link to="/leaderboard">Leaderboards</Link>
                     </li>
                 </ul>
             </nav>
@@ -59,7 +61,7 @@ const Nav = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/shop">Shop</Link>
+                        <Link to="/leaderboard">Leaderboards</Link>
                     </li>
                 </ul>
             </nav>

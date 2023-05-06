@@ -1,0 +1,23 @@
+.site-header{
+    background-color: var(--darkBlue);
+    padding: 16px var(--siteHorizonalPadding);
+
+    .inner {
+        margin: 0 auto;
+        max-width: var(--siteContentWidth);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .site-logo{
+        margin: 0px;
+
+        a {
+            color: var(--offWhite);
+            text-decoration: none;
+        }
+    }
+
+}
