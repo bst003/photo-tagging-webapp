@@ -77,6 +77,8 @@ FIREBASE
         - Will have to store an entry for each user, will also have to store which gameLevelId it is for
 
 Layout
+    - Home Screen
+        - Short description and then list games
     - Game screen will have sidebar
 
 Security

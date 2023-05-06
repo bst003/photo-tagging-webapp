@@ -11,7 +11,7 @@ const Header = (props) => {
         <header className="site-header">
             <div className="inner">
                 <div className="site-logo h2">
-                    <Link to="/">Photo Tagging</Link>
+                    <Link to="/">Find Quest</Link>
                 </div>
 
                 <Nav />
