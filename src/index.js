@@ -89,22 +89,22 @@ Security
 const firebaseAppConfig = getFirebaseConfig();
 initializeApp(firebaseAppConfig);
 
-const getLevels = async () => {
-    try {
-        console.log(getFirestore());
-        const levelsQuery = query(collection(getFirestore(), "gameLevels"));
-        console.log(levelsQuery);
+// const getLevels = async () => {
+//     try {
+//         console.log(getFirestore());
+//         const levelsQuery = query(collection(getFirestore(), "gameLevels"));
+//         console.log(levelsQuery);
 
-        const levelsQuerySnapshot = await getDocs(levelsQuery);
-        levelsQuerySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
-        });
-    } catch (error) {
-        console.log("sign out error: " + error);
-    }
-};
+//         const levelsQuerySnapshot = await getDocs(levelsQuery);
+//         levelsQuerySnapshot.forEach((doc) => {
+//             console.log(doc.id, " => ", doc.data());
+//         });
+//     } catch (error) {
+//         console.log("sign out error: " + error);
+//     }
+// };
 
-getLevels();
+// getLevels();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
