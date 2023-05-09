@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import { getFirestore, collection, getDocs, query } from "firebase/firestore/lite";
 
 import LevelSelectCTA from "./LevelSelectCTA";
+
+import "./LevelSelect.scss";
 
 const LevelSelect = () => {
     const [levelsList, setlevelsList] = useState([]);
