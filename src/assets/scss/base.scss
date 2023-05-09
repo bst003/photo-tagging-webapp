@@ -29,7 +29,14 @@
 
 body{
     background-color: var(--offWhite);
+    color: var(--darkGray);
     font-family: var(--primaryFont);
+
+    *{
+        color: var(--darkGray);
+        font-family: var(--primaryFont);
+    }
+
 }
 
 .site-main{
