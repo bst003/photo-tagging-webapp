@@ -14,7 +14,7 @@
     --primaryFont: 'Mukta', sans-serif;;
 
     --siteHorizonalPadding: 20px;
-    --siteContentWidth: 1140px;
+    --siteContentWidth: 1100px;
 
     --siteBoxShadow: 5px 5px 20px #1b1e264d;
 }
@@ -30,6 +30,21 @@
 body{
     background-color: var(--offWhite);
     font-family: var(--primaryFont);
+}
+
+.site-main{
+    padding: 0px var(--siteHorizonalPadding);
+
+    &.no-contain{
+        padding: 0px;
+    }
+
+    &__inner{
+        margin: 0 auto;
+        max-width: var(--siteContentWidth);
+        width: 100%;
+    }
+
 }
 
 // Helper Classes
@@ -134,7 +149,7 @@ body{
 
 }
 
-/// // Base Images
+// Base Images
 ////////////////////////////////////////////////
 
 img{

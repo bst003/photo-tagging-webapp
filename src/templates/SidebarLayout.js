@@ -6,8 +6,8 @@ const SidebarLayout = (props) => {
     return (
         <div>
             <Header />
-            <main className="site-main">
-                <div className="site-main__inner no-contain">
+            <main className="site-main no-contain">
+                <div className="site-main__inner">
                     <Outlet />
                 </div>
             </main>
