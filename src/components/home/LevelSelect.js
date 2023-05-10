@@ -28,7 +28,7 @@ const LevelSelect = () => {
 
             setlevelsList(levelsArr);
         } catch (error) {
-            console.log("sign out error: " + error);
+            console.log("Error fetching levels: " + error);
         }
     };
 
