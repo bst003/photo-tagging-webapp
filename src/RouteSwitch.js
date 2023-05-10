@@ -15,7 +15,7 @@ const RouteSwitch = () => {
         <BrowserRouter>
             <Routes>
                 <Route element={<SidebarLayout />}>
-                    <Route path="/game" element={<Game />} />
+                    <Route path="/game/:slug" element={<Game />} />
                 </Route>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />

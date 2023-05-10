@@ -4,6 +4,10 @@
     background-color: initial;
     cursor: pointer;
 
+    img{
+        box-shadow: var(--siteBoxShadow);
+    }
+
     span{
         display: block;
         margin: 10px 0px 0px;
