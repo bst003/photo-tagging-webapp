@@ -15,6 +15,7 @@
 
     --siteHorizonalPadding: 20px;
     --siteContentWidth: 1100px;
+    --siteContentWidthWide: 1420px;
 
     --siteBoxShadow: 5px 5px 20px #1b1e264d;
 }
@@ -42,14 +43,25 @@ body{
 .site-main{
     padding: 0px var(--siteHorizonalPadding);
 
-    &.no-contain{
-        padding: 0px;
+    &.wide{
+
+        .site-main__inner{
+            max-width: var(--siteContentWidthWide);
+        }
+
     }
 
     &__inner{
         margin: 0 auto;
         max-width: var(--siteContentWidth);
         width: 100%;
+
+        &.sidebar-layout{
+            >div{
+                display: flex;
+            }
+        }
+
     }
 
 }

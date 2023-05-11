@@ -1,0 +1,10 @@
+.gf-contain{
+    padding: 0px var(--siteHorizonalPadding);
+    width: 100%;
+
+    &__inner{
+        max-width: var(--siteContentWidth);
+        margin: 0 auto;
+    }
+
+}
