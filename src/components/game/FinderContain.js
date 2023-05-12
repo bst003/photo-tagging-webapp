@@ -6,8 +6,8 @@ const FinderContain = (props) => {
     const { children } = props;
 
     return (
-        <section class="gf-contain">
-            <div class="gf-contain__inner">{children}</div>
+        <section className="fg-contain">
+            <div className="fg-contain__inner">{children}</div>
         </section>
     );
 };

@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore/lite";
 
-import FinderSidebar from "../components/game/FinderSidebar.js";
+import Finder from "../components/game/Finder.js";
+import Sidebar from "../components/game/Sidebar.js";
 import FinderContain from "../components/game/FinderContain.js";
+import Timer from "../components/game/Timer.js";
 
 /*
 
@@ -52,12 +54,17 @@ const Game = () => {
 
     return (
         <div>
-            {/* Game {params.slug + " "}
-            {levelData.label && levelData.label} */}
-            <FinderSidebar>Test</FinderSidebar>
-            <FinderContain>
-                <h1 className="gf-title">Level: {levelData.label}</h1>
-            </FinderContain>
+            {levelData.label && (
+                <>
+                    <Sidebar>
+                        <Timer />
+                    </Sidebar>
+                    <FinderContain>
+                        <h1 className="fg-title">Level: {levelData.label}</h1>
+                        <Finder codename={levelData.codename} label={levelData.label} />
+                    </FinderContain>
+                </>
+            )}
         </div>
     );
 };
