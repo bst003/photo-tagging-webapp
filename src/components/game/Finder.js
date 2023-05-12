@@ -6,7 +6,7 @@ const Finder = (props) => {
     const { codename, label } = props;
 
     return (
-        <figure className="fg-image-wrap">
+        <figure className="fg-finder">
             <img src={require(`../../assets/img/${codename}.png`)} alt={label + " level"} />
         </figure>
     );
