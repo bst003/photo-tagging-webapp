@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./CharacterNav.scss";
+
 const CharacterNav = (props) => {
     const { chars } = props;
 

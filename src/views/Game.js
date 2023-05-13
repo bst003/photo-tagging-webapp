@@ -21,6 +21,9 @@ FinderContain
         - Which character nav (prompts user to choose which character is in targeter)
 
 When character is found it will need to pass the found data up to Game so it can then be passed to sidebar children
+    - Where is this data stored?
+        - Add "found" key to levelData for each character?
+        - Have a separate state array of found characters and compare to see if char is found?
 
 */
 
