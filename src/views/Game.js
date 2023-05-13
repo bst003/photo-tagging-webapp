@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore/lite";
 
+import CharacterNav from "../components/game/CharacterNav.js";
 import Finder from "../components/game/Finder.js";
 import Sidebar from "../components/game/Sidebar.js";
 import FinderContain from "../components/game/FinderContain.js";
@@ -58,6 +59,7 @@ const Game = () => {
                 <>
                     <Sidebar>
                         <Timer />
+                        <CharacterNav chars={levelData.characters} />
                     </Sidebar>
                     <FinderContain>
                         <h1 className="fg-title">Level: {levelData.label}</h1>
