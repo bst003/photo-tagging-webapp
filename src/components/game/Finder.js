@@ -15,6 +15,10 @@ const Finder = (props) => {
         return [coordX, coordY];
     };
 
+    const calcClickBounds = (clickCoords) => {
+        console.log("getting bounding box for click");
+    };
+
     const getFinderDimensions = (e) => {
         const finderWidth = e.target.width;
         const finderHeight = e.target.height;
@@ -27,6 +31,7 @@ const Finder = (props) => {
     const triggerClick = (e) => {
         const clickCoords = getCoords(e);
         const finderDimensions = getFinderDimensions(e);
+        calcClickBounds();
     };
 
     return (
