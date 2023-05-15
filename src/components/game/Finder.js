@@ -5,6 +5,30 @@ import "./Finder.scss";
 const Finder = (props) => {
     const { codename, label } = props;
 
+    // Used to calc a box with padding around click to check
+    // if character is inside
+    const calcClickBounds = (clickCoords, finderDimensions) => {
+        console.log("getting bounding box for click");
+
+        const boundHoriWidth = finderDimensions.width * 0.06;
+        const boundHoriWidthHalf = boundHoriWidth / 2;
+        console.log(boundHoriWidth);
+        console.log(boundHoriWidthHalf);
+
+        console.log(clickCoords.x);
+
+        const clickBounds = {
+            upperX: ((clickCoords.x + boundHoriWidthHalf) / finderDimensions.width) * 100,
+            lowerX: ((clickCoords.x - boundHoriWidthHalf) / finderDimensions.width) * 100,
+            upperY: ((clickCoords.y + boundHoriWidthHalf) / finderDimensions.height) * 100,
+            lowerY: ((clickCoords.y - boundHoriWidthHalf) / finderDimensions.height) * 100,
+        };
+
+        console.log(clickBounds);
+
+        return clickBounds;
+    };
+
     const getCoords = (e) => {
         console.log(e);
         const coordX = e.nativeEvent.offsetX;
@@ -12,11 +36,10 @@ const Finder = (props) => {
         console.log(`coord X: ${coordX}`);
         console.log(`coord Y: ${coordY}`);
 
-        return [coordX, coordY];
-    };
-
-    const calcClickBounds = (clickCoords) => {
-        console.log("getting bounding box for click");
+        return {
+            x: Number(coordX),
+            y: coordY,
+        };
     };
 
     const getFinderDimensions = (e) => {
@@ -25,13 +48,16 @@ const Finder = (props) => {
         console.log(`width: ${finderWidth}`);
         console.log(`height: ${finderHeight}`);
 
-        return [finderWidth, finderHeight];
+        return {
+            width: finderWidth,
+            height: finderHeight,
+        };
     };
 
     const triggerClick = (e) => {
         const clickCoords = getCoords(e);
         const finderDimensions = getFinderDimensions(e);
-        calcClickBounds();
+        calcClickBounds(clickCoords, finderDimensions);
     };
 
     return (
