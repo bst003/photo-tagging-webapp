@@ -6,7 +6,13 @@ const Finder = (props) => {
     const { codename, label } = props;
 
     // Used to calc a box with padding around click to check
-    // if character is inside
+    // Accomplish by creating a square that is 6% of the width of the
+    // image. The click coords are passed so that you can add and subtract
+    // 3% of the width of the image to the x and y coord to create the
+    // bounding box. The box is then converted into percents of the
+    // overall finder width and height. These values will then be
+    // checked against the values that exist for each character in the
+    // firebase database.
     const calcClickBounds = (clickCoords, finderDimensions) => {
         console.log("getting bounding box for click");
 
