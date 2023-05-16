@@ -1,9 +1,11 @@
 import React from "react";
 
+import FinderCharSelect from "./FinderCharSelect.js";
+
 import "./Finder.scss";
 
 const Finder = (props) => {
-    const { codename, label } = props;
+    const { chars, codename, label } = props;
 
     // Used to update any bounds less than 0 or greater than 100
     const adjustAbnormalBounds = (bound) => {
@@ -29,7 +31,7 @@ const Finder = (props) => {
     const calcClickBounds = (clickCoords, finderDimensions) => {
         console.log("getting bounding box for click");
 
-        const boundHoriWidth = finderDimensions.width * 0.06;
+        const boundHoriWidth = finderDimensions.width * 0.065;
         const boundHoriWidthHalf = boundHoriWidth / 2;
         console.log(boundHoriWidth);
         console.log(boundHoriWidthHalf);
@@ -84,12 +86,17 @@ const Finder = (props) => {
     const triggerClick = (e) => {
         const clickCoords = getCoords(e);
         const finderDimensions = getFinderDimensions(e);
+
+        console.log(` x pos: ${(clickCoords.x / finderDimensions.width) * 100}`);
+        console.log(` y pos: ${(clickCoords.y / finderDimensions.height) * 100}`);
+
         calcClickBounds(clickCoords, finderDimensions);
     };
 
     return (
         <figure className="fg-finder" onClick={triggerClick}>
             <img src={require(`../../assets/img/${codename}.png`)} alt={label + " level"} />
+            <FinderCharSelect chars={chars} />
         </figure>
     );
 };

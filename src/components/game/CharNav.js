@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./CharacterNav.scss";
+import "./CharNav.scss";
 
-const CharacterNav = (props) => {
+const CharNav = (props) => {
     const { chars } = props;
 
     return (
@@ -14,4 +14,4 @@ const CharacterNav = (props) => {
     );
 };
 
-export default CharacterNav;
+export default CharNav;

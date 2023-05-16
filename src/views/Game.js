@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore/lite";
 
-import CharacterNav from "../components/game/CharacterNav.js";
+import CharNav from "../components/game/CharNav.js";
 import Finder from "../components/game/Finder.js";
 import Sidebar from "../components/game/Sidebar.js";
 import FinderContain from "../components/game/FinderContain.js";
@@ -62,11 +62,15 @@ const Game = () => {
                 <>
                     <Sidebar>
                         <Timer />
-                        <CharacterNav chars={levelData.characters} />
+                        <CharNav chars={levelData.characters} />
                     </Sidebar>
                     <FinderContain>
                         <h1 className="fg-title">Level: {levelData.label}</h1>
-                        <Finder codename={levelData.codename} label={levelData.label} />
+                        <Finder
+                            chars={levelData.characters}
+                            codename={levelData.codename}
+                            label={levelData.label}
+                        />
                     </FinderContain>
                 </>
             )}
