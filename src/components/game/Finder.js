@@ -5,6 +5,19 @@ import "./Finder.scss";
 const Finder = (props) => {
     const { codename, label } = props;
 
+    // Used to update any bounds less than 0 or greater than 100
+    const adjustAbnormalBounds = (bound) => {
+        if (bound < 0) {
+            return 0;
+        }
+
+        if (bound > 100) {
+            return 100;
+        }
+
+        return bound;
+    };
+
     // Used to calc a box with padding around click to check
     // Accomplish by creating a square that is 6% of the width of the
     // image. The click coords are passed so that you can add and subtract
@@ -24,10 +37,18 @@ const Finder = (props) => {
         console.log(clickCoords.x);
 
         const clickBounds = {
-            upperX: ((clickCoords.x + boundHoriWidthHalf) / finderDimensions.width) * 100,
-            lowerX: ((clickCoords.x - boundHoriWidthHalf) / finderDimensions.width) * 100,
-            upperY: ((clickCoords.y + boundHoriWidthHalf) / finderDimensions.height) * 100,
-            lowerY: ((clickCoords.y - boundHoriWidthHalf) / finderDimensions.height) * 100,
+            upperX: adjustAbnormalBounds(
+                ((clickCoords.x + boundHoriWidthHalf) / finderDimensions.width) * 100
+            ),
+            lowerX: adjustAbnormalBounds(
+                ((clickCoords.x - boundHoriWidthHalf) / finderDimensions.width) * 100
+            ),
+            upperY: adjustAbnormalBounds(
+                ((clickCoords.y + boundHoriWidthHalf) / finderDimensions.height) * 100
+            ),
+            lowerY: adjustAbnormalBounds(
+                ((clickCoords.y - boundHoriWidthHalf) / finderDimensions.height) * 100
+            ),
         };
 
         console.log(clickBounds);
