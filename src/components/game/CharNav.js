@@ -1,14 +1,19 @@
 import React from "react";
+import { useContext } from "react";
+
+import uniqid from "uniqid";
+
+import CharContext from "./CharContext.js";
 
 import "./CharNav.scss";
 
-const CharNav = (props) => {
-    const { chars } = props;
+const CharNav = () => {
+    const chars = useContext(CharContext);
 
     return (
         <ul className="fg-char-nav">
             {chars.map((char) => {
-                return <li>{char.label}</li>;
+                return <li key={uniqid()}>{char.label}</li>;
             })}
         </ul>
     );

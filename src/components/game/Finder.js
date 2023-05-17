@@ -67,7 +67,7 @@ const Finder = (props) => {
 
         return {
             x: Number(coordX),
-            y: coordY,
+            y: Number(coordY),
         };
     };
 

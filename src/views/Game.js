@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore/lite";
 
+import CharContext from "../components/game/CharContext.js";
 import CharNav from "../components/game/CharNav.js";
 import Finder from "../components/game/Finder.js";
 import Sidebar from "../components/game/Sidebar.js";
@@ -30,6 +31,9 @@ WHAT CHAR DATA SHOULD I PASS DOWN TO FINDER AND FINDERCHARSELECT?
     - ONLY PASS DOWN NAME AND LABEL? THEN CHECK COORDS IN GAME?
 
 THE DATA HAS TO BE VALIDATED AT "GAME" LEVEL SO THAT IT CAN PASS ANY CHANGES TO THE SIDEBAR TOO
+
+USE CONTEXT TO SET CHAR DATA ON "GAME" LEVEL?
+https://react.dev/learn/passing-data-deeply-with-context#step-3-provide-the-context
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 */
@@ -63,22 +67,39 @@ const Game = () => {
         getLevelData();
     }, [params.slug]);
 
+    const trimCharData = () => {
+        if (levelData.characters) {
+            const trimmedCharData = levelData.characters.map((character) => {
+                return {
+                    codename: character.codename,
+                    label: character.label,
+                };
+            });
+
+            console.log(trimmedCharData);
+        }
+
+        return;
+    };
+
     return (
         <div>
             {levelData.label && (
                 <>
-                    <Sidebar>
-                        <Timer />
-                        <CharNav chars={levelData.characters} />
-                    </Sidebar>
-                    <FinderContain>
-                        <h1 className="fg-title">Level: {levelData.label}</h1>
-                        <Finder
-                            chars={levelData.characters}
-                            codename={levelData.codename}
-                            label={levelData.label}
-                        />
-                    </FinderContain>
+                    <CharContext.Provider value={levelData.characters}>
+                        <Sidebar>
+                            <Timer />
+                            <CharNav />
+                        </Sidebar>
+                        <FinderContain>
+                            <h1 className="fg-title">Level: {levelData.label}</h1>
+                            <Finder
+                                chars={levelData.characters}
+                                codename={levelData.codename}
+                                label={levelData.label}
+                            />
+                        </FinderContain>
+                    </CharContext.Provider>
                 </>
             )}
         </div>

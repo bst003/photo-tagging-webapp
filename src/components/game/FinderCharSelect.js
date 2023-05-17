@@ -1,5 +1,7 @@
 import React from "react";
 
+import uniqid from "uniqid";
+
 const FinderCharSelect = (props) => {
     const { chars } = props;
 
@@ -7,7 +9,7 @@ const FinderCharSelect = (props) => {
         <ul className="fg-char-select">
             {chars.map((char) => {
                 console.log(char);
-                return <li>{char.label}</li>;
+                return <li key={uniqid()}>{char.label}</li>;
             })}
         </ul>
     );
