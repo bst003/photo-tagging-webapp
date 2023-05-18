@@ -67,20 +67,20 @@ const Game = () => {
         getLevelData();
     }, [params.slug]);
 
-    const trimCharData = () => {
-        if (levelData.characters) {
-            const trimmedCharData = levelData.characters.map((character) => {
-                return {
-                    codename: character.codename,
-                    label: character.label,
-                };
-            });
+    // const trimCharData = () => {
+    //     if (levelData.characters) {
+    //         const trimmedCharData = levelData.characters.map((character) => {
+    //             return {
+    //                 codename: character.codename,
+    //                 label: character.label,
+    //             };
+    //         });
 
-            console.log(trimmedCharData);
-        }
+    //         console.log(trimmedCharData);
+    //     }
 
-        return;
-    };
+    //     return;
+    // };
 
     return (
         <div>
@@ -93,11 +93,7 @@ const Game = () => {
                         </Sidebar>
                         <FinderContain>
                             <h1 className="fg-title">Level: {levelData.label}</h1>
-                            <Finder
-                                chars={levelData.characters}
-                                codename={levelData.codename}
-                                label={levelData.label}
-                            />
+                            <Finder codename={levelData.codename} label={levelData.label} />
                         </FinderContain>
                     </CharContext.Provider>
                 </>

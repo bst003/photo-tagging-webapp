@@ -5,7 +5,7 @@ import FinderCharSelect from "./FinderCharSelect.js";
 import "./Finder.scss";
 
 const Finder = (props) => {
-    const { chars, codename, label } = props;
+    const { codename, label } = props;
 
     // Used to update any bounds less than 0 or greater than 100
     const adjustAbnormalBounds = (bound) => {
@@ -96,7 +96,7 @@ const Finder = (props) => {
     return (
         <figure className="fg-finder" onClick={triggerClick}>
             <img src={require(`../../assets/img/${codename}.png`)} alt={label + " level"} />
-            <FinderCharSelect chars={chars} />
+            <FinderCharSelect />
         </figure>
     );
 };
