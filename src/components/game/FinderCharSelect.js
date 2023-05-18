@@ -4,7 +4,9 @@ import uniqid from "uniqid";
 
 import CharContext from "./CharContext.js";
 
-import FinderCharSelectButton from "./FinderCharSelectButtons.js";
+import FinderCharSelectButton from "./FinderCharSelectButton.js";
+
+import "./FinderCharSelect.scss";
 
 const FinderCharSelect = () => {
     const chars = useContext(CharContext);

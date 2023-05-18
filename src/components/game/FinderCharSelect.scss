@@ -1,0 +1,17 @@
+.fg-char-select{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    background-color: var(--darkBlue);
+    box-shadow: var(--siteBoxShadow);
+
+    li{
+        &:not(:last-of-type){
+            border-bottom: 1px solid var(--offWhite);
+        }
+    }
+
+}

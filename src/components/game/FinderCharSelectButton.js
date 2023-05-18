@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./FinderCharSelectButton.scss";
+
 const FinderCharSelectButton = (props) => {
     const { codename, label } = props;
 
@@ -9,7 +11,12 @@ const FinderCharSelectButton = (props) => {
 
     return (
         <li>
-            <button type="button" data-value={codename} onClick={makeSelection}>
+            <button
+                className="fg-char-select-btn"
+                type="button"
+                data-value={codename}
+                onClick={makeSelection}
+            >
                 {label}
             </button>
         </li>

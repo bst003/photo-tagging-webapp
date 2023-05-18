@@ -33,10 +33,10 @@ const Finder = (props) => {
 
         const boundHoriWidth = finderDimensions.width * 0.065;
         const boundHoriWidthHalf = boundHoriWidth / 2;
-        console.log(boundHoriWidth);
-        console.log(boundHoriWidthHalf);
+        // console.log(boundHoriWidth);
+        // console.log(boundHoriWidthHalf);
 
-        console.log(clickCoords.x);
+        // console.log(clickCoords.x);
 
         const clickBounds = {
             upperX: adjustAbnormalBounds(
@@ -53,7 +53,7 @@ const Finder = (props) => {
             ),
         };
 
-        console.log(clickBounds);
+        // console.log(clickBounds);
 
         return clickBounds;
     };
@@ -94,10 +94,14 @@ const Finder = (props) => {
     };
 
     return (
-        <figure className="fg-finder" onClick={triggerClick}>
-            <img src={require(`../../assets/img/${codename}.png`)} alt={label + " level"} />
+        <div className="fg-finder">
+            <img
+                onClick={triggerClick}
+                src={require(`../../assets/img/${codename}.png`)}
+                alt={label + " level"}
+            />
             <FinderCharSelect />
-        </figure>
+        </div>
     );
 };
 
