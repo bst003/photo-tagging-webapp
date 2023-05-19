@@ -3,7 +3,7 @@ import React from "react";
 import "./FinderCharSelectButton.scss";
 
 const FinderCharSelectButton = (props) => {
-    const { codename, label } = props;
+    const { codename, label, found } = props;
 
     const makeSelection = (e) => {
         console.log(`you selected ${codename}`);

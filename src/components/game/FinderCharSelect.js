@@ -23,16 +23,19 @@ const FinderCharSelect = () => {
 
     return (
         <ul className="fg-char-select">
-            {chars.map((char) => {
-                console.log(char);
-                return (
+            {chars.reduce((accumulator, char) => {
+                if (char.found) {
+                    return accumulator;
+                }
+
+                return accumulator.concat(
                     <FinderCharSelectButton
                         key={uniqid()}
                         label={char.label}
                         codename={char.codename}
                     />
                 );
-            })}
+            }, [])}
         </ul>
     );
 };
