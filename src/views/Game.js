@@ -42,8 +42,24 @@ const Game = () => {
     const params = useParams();
 
     const [levelData, setLevelData] = useState({});
+    const [charData, setCharData] = useState([]);
 
     useEffect(() => {
+        const _trimCharData = (characters) => {
+            const trimmedData = [];
+
+            characters.forEach((character) => {
+                const charObj = {
+                    label: character.label,
+                    codename: character.codename,
+                };
+
+                trimmedData.push(charObj);
+            });
+
+            return trimmedData;
+        };
+
         const getLevelData = async () => {
             try {
                 const levelDataQuery = query(
@@ -55,7 +71,16 @@ const Game = () => {
 
                 levelDataQuerySnapshot.forEach((doc) => {
                     console.log(doc.id, " => ", doc.data());
-                    setLevelData(doc.data());
+
+                    const levelDataObj = {
+                        label: doc.data().label,
+                        codename: doc.data().codename,
+                    };
+
+                    const charDataArr = _trimCharData(doc.data().characters);
+
+                    setLevelData(levelDataObj);
+                    setCharData(charDataArr);
                 });
 
                 // setlevelsList(levelsArr);
@@ -86,7 +111,7 @@ const Game = () => {
         <div>
             {levelData.label && (
                 <>
-                    <CharContext.Provider value={levelData.characters}>
+                    <CharContext.Provider value={charData}>
                         <Sidebar>
                             <Timer />
                             <CharNav />
