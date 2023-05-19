@@ -58,6 +58,13 @@ const Finder = (props) => {
         return clickBounds;
     };
 
+    const calcCoordsPercent = (clickCoords, finderDimensions) => {
+        return {
+            x: (clickCoords.x / finderDimensions.width) * 100,
+            y: (clickCoords.y / finderDimensions.height) * 100,
+        };
+    };
+
     const getCoords = (e) => {
         console.log(e);
         const coordX = e.nativeEvent.offsetX;
@@ -89,6 +96,8 @@ const Finder = (props) => {
 
         console.log(` x pos: ${(clickCoords.x / finderDimensions.width) * 100}`);
         console.log(` y pos: ${(clickCoords.y / finderDimensions.height) * 100}`);
+
+        console.log(calcCoordsPercent(clickCoords, finderDimensions));
 
         calcClickBounds(clickCoords, finderDimensions);
     };

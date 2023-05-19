@@ -17,8 +17,6 @@ const FinderCharSelect = () => {
         const codename = e.currentTarget;
 
         console.log(codename);
-
-        // console.log(`you selected ${char.codename}`);
     };
 
     return (

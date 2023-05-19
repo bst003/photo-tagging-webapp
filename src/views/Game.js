@@ -36,6 +36,12 @@ USE CONTEXT TO SET CHAR DATA ON "GAME" LEVEL?
 https://react.dev/learn/passing-data-deeply-with-context#step-3-provide-the-context
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
+State for FinderCharSelect being visible?
+    - If state is active (trigger on click), then show.
+    - Set coordinates based on click coords
+    - Add close button to finderCharSelect?
+
 */
 
 const Game = () => {
