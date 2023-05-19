@@ -52,6 +52,7 @@ const Game = () => {
                 const charObj = {
                     label: character.label,
                     codename: character.codename,
+                    found: false,
                 };
 
                 trimmedData.push(charObj);
