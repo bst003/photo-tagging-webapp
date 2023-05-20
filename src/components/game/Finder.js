@@ -5,7 +5,7 @@ import FinderCharSelect from "./FinderCharSelect.js";
 import "./Finder.scss";
 
 const Finder = (props) => {
-    const { codename, label } = props;
+    const { codename, label, passCheckSelectCoords } = props;
 
     // Used to update any bounds less than 0 or greater than 100
     const adjustAbnormalBounds = (bound) => {
@@ -110,6 +110,7 @@ const Finder = (props) => {
         }
     };
 
+    const [prevClickBounds, setPrevClickBounds] = useState({});
     const triggerClick = (e) => {
         const clickCoords = getCoords(e);
         const finderDimensions = getFinderDimensions(e);
@@ -124,7 +125,16 @@ const Finder = (props) => {
 
         console.log(calcCoordsPercent(clickCoords, finderDimensions));
 
-        calcClickBounds(clickCoords, finderDimensions);
+        // calcClickBounds(clickCoords, finderDimensions);
+        setPrevClickBounds(calcClickBounds(clickCoords, finderDimensions));
+
+        console.log(prevClickBounds);
+    };
+
+    const onCharSelection = (codename) => {
+        console.log("this is in Finder " + codename);
+
+        passCheckSelectCoords(prevClickBounds, codename);
     };
 
     return (
@@ -134,7 +144,11 @@ const Finder = (props) => {
                 src={require(`../../assets/img/${codename}.png`)}
                 alt={label + " level"}
             />
-            <FinderCharSelect active={charSelectActive} closeCharSelect={closeCharSelect} />
+            <FinderCharSelect
+                active={charSelectActive}
+                closeCharSelect={closeCharSelect}
+                passOnCharSelection={onCharSelection}
+            />
         </div>
     );
 };

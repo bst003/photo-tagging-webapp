@@ -9,16 +9,13 @@ import FinderCharSelectButton from "./FinderCharSelectButton.js";
 import "./FinderCharSelect.scss";
 
 const FinderCharSelect = (props) => {
-    const { active, closeCharSelect } = props;
+    const { active, closeCharSelect, passOnCharSelection } = props;
 
     const chars = useContext(CharContext);
 
-    const makeSelection = (e) => {
-        console.log(e);
-
-        const codename = e.currentTarget;
-
-        console.log(codename);
+    const onCharSelection = (codename) => {
+        console.log("this is in FinderCharSelect " + codename);
+        passOnCharSelection(codename);
     };
 
     return (
@@ -37,6 +34,7 @@ const FinderCharSelect = (props) => {
                             key={uniqid()}
                             label={char.label}
                             codename={char.codename}
+                            passOnCharSelection={onCharSelection}
                         />
                     );
                 }, [])}

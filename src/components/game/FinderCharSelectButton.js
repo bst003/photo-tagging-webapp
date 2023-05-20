@@ -3,10 +3,12 @@ import React from "react";
 import "./FinderCharSelectButton.scss";
 
 const FinderCharSelectButton = (props) => {
-    const { codename, label, found } = props;
+    const { codename, label, passOnCharSelection } = props;
 
-    const makeSelection = (e) => {
+    const triggerCharSelection = (e) => {
         console.log(`you selected ${codename}`);
+
+        passOnCharSelection(codename);
     };
 
     return (
@@ -15,7 +17,7 @@ const FinderCharSelectButton = (props) => {
                 className="fg-char-select-btn"
                 type="button"
                 data-value={codename}
-                onClick={makeSelection}
+                onClick={triggerCharSelection}
             >
                 {label}
             </button>

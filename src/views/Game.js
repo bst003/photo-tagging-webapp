@@ -99,20 +99,11 @@ const Game = () => {
         getLevelData();
     }, [params.slug]);
 
-    // const trimCharData = () => {
-    //     if (levelData.characters) {
-    //         const trimmedCharData = levelData.characters.map((character) => {
-    //             return {
-    //                 codename: character.codename,
-    //                 label: character.label,
-    //             };
-    //         });
-
-    //         console.log(trimmedCharData);
-    //     }
-
-    //     return;
-    // };
+    // Check if the selected character is in the bounds of the coords
+    const checkSelectCoords = (coords, codename) => {
+        console.log("this is in Game " + codename);
+        console.log(coords);
+    };
 
     return (
         <div>
@@ -125,7 +116,11 @@ const Game = () => {
                         </Sidebar>
                         <FinderContain>
                             <h1 className="fg-title">Level: {levelData.label}</h1>
-                            <Finder codename={levelData.codename} label={levelData.label} />
+                            <Finder
+                                codename={levelData.codename}
+                                label={levelData.label}
+                                passCheckSelectCoords={checkSelectCoords}
+                            />
                         </FinderContain>
                     </CharContext.Provider>
                 </>
