@@ -9,7 +9,7 @@ import FinderCharSelectButton from "./FinderCharSelectButton.js";
 import "./FinderCharSelect.scss";
 
 const FinderCharSelect = (props) => {
-    const { active, closeSelect } = props;
+    const { active, closeCharSelect } = props;
 
     const chars = useContext(CharContext);
 
@@ -23,7 +23,7 @@ const FinderCharSelect = (props) => {
 
     return (
         <div className={`fg-char-select ${active ? "active" : ""}`}>
-            <button type="button" onClick={closeSelect}>
+            <button type="button" onClick={closeCharSelect}>
                 close
             </button>
             <ul>

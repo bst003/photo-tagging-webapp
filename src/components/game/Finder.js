@@ -134,7 +134,7 @@ const Finder = (props) => {
                 src={require(`../../assets/img/${codename}.png`)}
                 alt={label + " level"}
             />
-            <FinderCharSelect active={charSelectActive} closeSelect={closeCharSelect} />
+            <FinderCharSelect active={charSelectActive} closeCharSelect={closeCharSelect} />
         </div>
     );
 };
