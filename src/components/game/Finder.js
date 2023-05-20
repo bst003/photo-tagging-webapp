@@ -96,7 +96,13 @@ const Finder = (props) => {
 
         const charSelect = fgFinder.querySelector(".fg-char-select");
         charSelect.style.top = coordsPercents.y + "%";
-        charSelect.style.left = coordsPercents.x + "%";
+        if (coordsPercents.x > 50) {
+            charSelect.style.right = 100 - coordsPercents.x + "%";
+            charSelect.style.left = "initial";
+        } else {
+            charSelect.style.left = coordsPercents.x + "%";
+            charSelect.style.right = "initial";
+        }
     };
 
     const triggerClick = (e) => {
