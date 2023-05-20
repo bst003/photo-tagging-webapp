@@ -9,6 +9,10 @@
     background-color: var(--darkBlue);
     box-shadow: var(--siteBoxShadow);
 
+    &.active{
+        display: block;
+    }
+
     li{
         &:not(:last-of-type){
             border-bottom: 1px solid var(--offWhite);

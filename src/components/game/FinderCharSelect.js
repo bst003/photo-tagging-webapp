@@ -8,7 +8,9 @@ import FinderCharSelectButton from "./FinderCharSelectButton.js";
 
 import "./FinderCharSelect.scss";
 
-const FinderCharSelect = () => {
+const FinderCharSelect = (props) => {
+    const { active } = props;
+
     const chars = useContext(CharContext);
 
     const makeSelection = (e) => {
@@ -20,7 +22,7 @@ const FinderCharSelect = () => {
     };
 
     return (
-        <ul className="fg-char-select">
+        <ul className={`fg-char-select ${active ? "active" : ""}`}>
             {chars.reduce((accumulator, char) => {
                 if (char.found) {
                     return accumulator;

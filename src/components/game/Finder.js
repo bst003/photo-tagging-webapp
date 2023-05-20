@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import FinderCharSelect from "./FinderCharSelect.js";
 
@@ -90,9 +90,23 @@ const Finder = (props) => {
         };
     };
 
+    const [charSelectActive, setCharSelectActive] = useState(false);
+    const setCharSelectCoords = (e, coordsPercents) => {
+        const fgFinder = e.target.parentElement;
+
+        const charSelect = fgFinder.querySelector(".fg-char-select");
+        charSelect.style.top = coordsPercents.y + "%";
+        charSelect.style.left = coordsPercents.x + "%";
+    };
+
     const triggerClick = (e) => {
         const clickCoords = getCoords(e);
         const finderDimensions = getFinderDimensions(e);
+
+        const coordsPercents = calcCoordsPercent(clickCoords, finderDimensions);
+
+        setCharSelectCoords(e, coordsPercents);
+        setCharSelectActive(true);
 
         console.log(` x pos: ${(clickCoords.x / finderDimensions.width) * 100}`);
         console.log(` y pos: ${(clickCoords.y / finderDimensions.height) * 100}`);
@@ -109,7 +123,7 @@ const Finder = (props) => {
                 src={require(`../../assets/img/${codename}.png`)}
                 alt={label + " level"}
             />
-            <FinderCharSelect />
+            <FinderCharSelect active={charSelectActive} />
         </div>
     );
 };
