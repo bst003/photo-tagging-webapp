@@ -3,14 +3,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
     background-color: var(--darkBlue);
     box-shadow: var(--siteBoxShadow);
 
     &.active{
         display: block;
+    }
+
+    ul{
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
     }
 
     li{

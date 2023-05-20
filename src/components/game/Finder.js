@@ -91,6 +91,11 @@ const Finder = (props) => {
     };
 
     const [charSelectActive, setCharSelectActive] = useState(false);
+
+    const closeCharSelect = () => {
+        setCharSelectActive(false);
+    };
+
     const setCharSelectCoords = (e, coordsPercents) => {
         const fgFinder = e.target.parentElement;
 
@@ -129,7 +134,7 @@ const Finder = (props) => {
                 src={require(`../../assets/img/${codename}.png`)}
                 alt={label + " level"}
             />
-            <FinderCharSelect active={charSelectActive} />
+            <FinderCharSelect active={charSelectActive} closeSelect={closeCharSelect} />
         </div>
     );
 };
