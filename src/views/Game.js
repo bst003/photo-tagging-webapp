@@ -50,59 +50,88 @@ const Game = () => {
     const [levelData, setLevelData] = useState({});
     const [charData, setCharData] = useState([]);
 
-    useEffect(() => {
-        const _trimCharData = (characters) => {
-            const trimmedData = [];
+    const _trimCharData = (characters) => {
+        const trimmedData = [];
 
-            characters.forEach((character) => {
-                const charObj = {
-                    label: character.label,
-                    codename: character.codename,
-                    found: false,
+        characters.forEach((character) => {
+            const charObj = {
+                label: character.label,
+                codename: character.codename,
+                found: false,
+            };
+
+            trimmedData.push(charObj);
+        });
+
+        return trimmedData;
+    };
+
+    const getLevelData = async () => {
+        try {
+            const levelDataQuery = query(
+                collection(getFirestore(), "gameLevels"),
+                where("codename", "==", params.slug)
+            );
+
+            const levelDataQuerySnapshot = await getDocs(levelDataQuery);
+
+            return levelDataQuerySnapshot;
+
+            // levelDataQuerySnapshot.forEach((doc) => {
+            //     console.log(doc.id, " => ", doc.data());
+
+            //     const levelDataObj = {
+            //         label: doc.data().label,
+            //         codename: doc.data().codename,
+            //     };
+
+            //     const charDataArr = _trimCharData(doc.data().characters);
+
+            //     setLevelData(levelDataObj);
+            //     setCharData(charDataArr);
+            // });
+        } catch (error) {
+            console.log("Error fetching data: " + error);
+        }
+    };
+
+    useEffect(() => {
+        const fillLevelState = async () => {
+            const levelData = await getLevelData();
+
+            levelData.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+
+                const levelDataObj = {
+                    label: doc.data().label,
+                    codename: doc.data().codename,
                 };
 
-                trimmedData.push(charObj);
+                const charDataArr = _trimCharData(doc.data().characters);
+
+                setLevelData(levelDataObj);
+                setCharData(charDataArr);
             });
-
-            return trimmedData;
         };
 
-        const getLevelData = async () => {
-            try {
-                const levelDataQuery = query(
-                    collection(getFirestore(), "gameLevels"),
-                    where("codename", "==", params.slug)
-                );
-
-                const levelDataQuerySnapshot = await getDocs(levelDataQuery);
-
-                levelDataQuerySnapshot.forEach((doc) => {
-                    console.log(doc.id, " => ", doc.data());
-
-                    const levelDataObj = {
-                        label: doc.data().label,
-                        codename: doc.data().codename,
-                    };
-
-                    const charDataArr = _trimCharData(doc.data().characters);
-
-                    setLevelData(levelDataObj);
-                    setCharData(charDataArr);
-                });
-
-                // setlevelsList(levelsArr);
-            } catch (error) {
-                console.log("Error fetching data: " + error);
-            }
-        };
-
-        getLevelData();
+        fillLevelState();
     }, [params.slug]);
 
     // Check if the selected character is in the bounds of the coords
-    const checkSelectCoords = (coords, codename) => {
+    const checkSelectCoords = async (coords, codename) => {
         console.log("this is in Game " + codename);
         console.log(coords);
+
+        const levelData = await getLevelData();
+        levelData.forEach((doc) => {
+            const chars = doc.data().characters;
+
+            console.log(chars);
+
+            const selectedChar = chars.find((char) => char.codename === codename);
+
+            console.log(selectedChar);
+        });
     };
 
     return (
