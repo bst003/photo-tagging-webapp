@@ -122,6 +122,10 @@ const Game = () => {
         console.log("this is in Game " + codename);
         console.log(coords);
 
+        console.log(charData);
+        const selectedCharIndex = charData.findIndex((char) => char.codename === codename);
+        console.log(selectedCharIndex);
+
         const levelData = await getLevelData();
         levelData.forEach((doc) => {
             const chars = doc.data().characters;
@@ -131,8 +135,43 @@ const Game = () => {
             const selectedChar = chars.find((char) => char.codename === codename);
 
             console.log(selectedChar);
+
+            if (!selectedChar) {
+                return;
+            }
+
+            console.log("selected char exists");
+
+            if (
+                coords.lowerX < selectedChar.coordX &&
+                coords.upperX > selectedChar.coordX &&
+                coords.lowerY < selectedChar.coordY &&
+                coords.upperY > selectedChar.coordY
+            ) {
+                console.log("character is found");
+
+                const updatedCharData = {
+                    label: charData[selectedCharIndex].label,
+                    codename: charData[selectedCharIndex].codename,
+                    found: true,
+                };
+
+                setCharData([
+                    ...charData.slice(0, selectedCharIndex),
+                    updatedCharData,
+                    ...charData.slice(selectedCharIndex + 1, charData.length),
+                ]);
+
+                console.log(charData.length);
+
+                console.log("post char data update");
+            }
         });
     };
+
+    useEffect(() => {
+        console.log(charData);
+    }, [charData]);
 
     return (
         <div>
