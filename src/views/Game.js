@@ -176,6 +176,8 @@ const Game = () => {
         console.log(charData);
     }, [charData]);
 
+    const [timer, setTimer] = useState(0);
+
     return (
         <div>
             {levelData.label && (
