@@ -169,6 +169,9 @@ const Game = () => {
         });
     };
 
+    //////////////////////////////////////////////
+    // DELETE WHEN DONE WITH BUILD
+    //////////////////////////////////////////////
     useEffect(() => {
         console.log(charData);
     }, [charData]);
