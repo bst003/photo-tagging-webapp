@@ -169,6 +169,35 @@ const Game = () => {
         });
     };
 
+    const [gameOver, setGameOver] = useState(false);
+
+    useEffect(() => {
+        const isGameOver = () => {
+            console.log(charData.length);
+            if (charData.length === 0) {
+                return false;
+            }
+
+            let gameIsOver = true;
+
+            for (let i = 0; i < charData.length; i++) {
+                if (!charData[i].found) {
+                    gameIsOver = false;
+                    break;
+                }
+            }
+
+            return gameIsOver;
+        };
+
+        console.log("the game is over?");
+        console.log(isGameOver());
+
+        if (isGameOver()) {
+            setGameOver(true);
+        }
+    }, [charData]);
+
     //////////////////////////////////////////////
     // DELETE WHEN DONE WITH BUILD
     //////////////////////////////////////////////
@@ -193,6 +222,7 @@ const Game = () => {
                                 codename={levelData.codename}
                                 label={levelData.label}
                                 passCheckSelectCoords={checkSelectCoords}
+                                gameOver={gameOver}
                             />
                         </FinderContain>
                     </CharContext.Provider>

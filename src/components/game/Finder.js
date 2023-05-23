@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import FinderCharSelect from "./FinderCharSelect.js";
+import WinOverlay from "./WinOverlay.js";
 
 import "./Finder.scss";
 
 const Finder = (props) => {
-    const { codename, label, passCheckSelectCoords } = props;
+    const { codename, label, gameOver, passCheckSelectCoords } = props;
 
     // Used to update any bounds less than 0 or greater than 100
     const adjustAbnormalBounds = (bound) => {
@@ -139,6 +140,7 @@ const Finder = (props) => {
 
     return (
         <div className="fg-finder">
+            {gameOver ? <WinOverlay /> : ""}
             <img
                 onClick={triggerClick}
                 src={require(`../../assets/img/${codename}.png`)}
