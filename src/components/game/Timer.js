@@ -1,7 +1,8 @@
 import React from "react";
 
 const Timer = (props) => {
-    return <p className="fg-timer">Timer</p>;
+    const { time } = props;
+    return <p className="fg-timer">{time}</p>;
 };
 
 export default Timer;

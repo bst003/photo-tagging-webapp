@@ -169,6 +169,43 @@ const Game = () => {
         });
     };
 
+    //////////////////////////////////////////////
+    // DELETE WHEN DONE WITH BUILD
+    //////////////////////////////////////////////
+    useEffect(() => {
+        console.log(charData);
+    }, [charData]);
+
+    // Timer Functions
+    ///////////////////////////
+
+    const [timer, setTimer] = useState(0);
+    let timerInterval = false;
+
+    const countTime = () => {
+        console.log("did the timer run?");
+        // if (timerInterval === false) {
+        console.log("start interval");
+        timerInterval = setInterval(() => {
+            console.log("tick");
+            setTimer((prevTime) => prevTime + 1);
+        }, 1000);
+        // }
+        console.log("testng");
+    };
+
+    useEffect(() => {
+        // countTime();
+
+        return () => {
+            // clearInterval(timerInterval);
+            // timerInterval = null;
+        };
+    }, []);
+
+    // Game Status Functions
+    ///////////////////////////
+
     const [gameOver, setGameOver] = useState(false);
 
     useEffect(() => {
@@ -198,22 +235,13 @@ const Game = () => {
         }
     }, [charData]);
 
-    //////////////////////////////////////////////
-    // DELETE WHEN DONE WITH BUILD
-    //////////////////////////////////////////////
-    useEffect(() => {
-        console.log(charData);
-    }, [charData]);
-
-    const [timer, setTimer] = useState(0);
-
     return (
         <div>
             {levelData.label && (
                 <>
                     <CharContext.Provider value={charData}>
                         <Sidebar>
-                            <Timer />
+                            <Timer time={timer} />
                             <CharNav />
                         </Sidebar>
                         <FinderContain>
