@@ -5,6 +5,13 @@ import WinOverlay from "./WinOverlay.js";
 
 import "./Finder.scss";
 
+/*
+
+Show Toast on guess?
+https://react-hot-toast.com/
+
+*/
+
 const Finder = (props) => {
     const { codename, label, gameOver, passCheckSelectCoords } = props;
 
@@ -136,6 +143,8 @@ const Finder = (props) => {
         console.log("this is in Finder " + codename);
 
         passCheckSelectCoords(prevClickBounds, codename);
+
+        closeCharSelect();
     };
 
     return (

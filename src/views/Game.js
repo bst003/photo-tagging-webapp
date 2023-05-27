@@ -194,8 +194,6 @@ const Game = () => {
     };
 
     useEffect(() => {
-        // countTime();
-
         return () => {
             stopCountTime();
         };
