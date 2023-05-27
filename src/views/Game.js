@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore/lite";
 
@@ -180,26 +180,24 @@ const Game = () => {
     ///////////////////////////
 
     const [timer, setTimer] = useState(0);
-    let timerInterval = false;
+    let timerInterval = useRef();
 
     const countTime = () => {
-        console.log("did the timer run?");
-        // if (timerInterval === false) {
-        console.log("start interval");
-        timerInterval = setInterval(() => {
-            console.log("tick");
+        timerInterval.current = setInterval(() => {
             setTimer((prevTime) => prevTime + 1);
+            console.log("tick");
         }, 1000);
-        // }
-        console.log("testng");
+    };
+
+    const stopCountTime = () => {
+        clearInterval(timerInterval.current);
     };
 
     useEffect(() => {
         // countTime();
 
         return () => {
-            // clearInterval(timerInterval);
-            // timerInterval = null;
+            stopCountTime();
         };
     }, []);
 
@@ -246,6 +244,12 @@ const Game = () => {
                         </Sidebar>
                         <FinderContain>
                             <h1 className="fg-title">Level: {levelData.label}</h1>
+                            <button onClick={countTime} type="button">
+                                Start
+                            </button>
+                            <button onClick={stopCountTime} type="button">
+                                Stop
+                            </button>
                             <Finder
                                 codename={levelData.codename}
                                 label={levelData.label}
