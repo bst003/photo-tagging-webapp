@@ -11,7 +11,7 @@ const StartOverlay = (props) => {
 
     return (
         <div className="start-overlay">
-            <div class="start-overlay__inner">
+            <div className="start-overlay__inner">
                 the game
                 <button type="button" onClick={startGame}>
                     Start game
