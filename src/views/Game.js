@@ -204,6 +204,7 @@ const Game = () => {
 
     const [gameOver, setGameOver] = useState(false);
 
+    // Run when char data changes to check if all characters are found
     useEffect(() => {
         const isGameOver = () => {
             console.log(charData.length);
@@ -230,6 +231,13 @@ const Game = () => {
             setGameOver(true);
         }
     }, [charData]);
+
+    // Run when game over is set to true and timer needs to be stopped
+    useEffect(() => {
+        if (gameOver === true) {
+            stopCountTime();
+        }
+    }, [gameOver]);
 
     return (
         <div>
