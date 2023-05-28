@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import FinderCharSelect from "./FinderCharSelect.js";
+import StartOverlay from "./StartOverlay.js";
 import WinOverlay from "./WinOverlay.js";
 
 import "./Finder.scss";
@@ -147,19 +148,33 @@ const Finder = (props) => {
         closeCharSelect();
     };
 
+    // Game Started State
+
+    const [gameStarted, setGameStarted] = useState(false);
+
+    const startGame = () => {
+        setGameStarted(true);
+    };
+
     return (
         <div className="fg-finder">
             {gameOver ? <WinOverlay /> : ""}
-            <img
-                onClick={triggerClick}
-                src={require(`../../assets/img/${codename}.png`)}
-                alt={label + " level"}
-            />
-            <FinderCharSelect
-                active={charSelectActive}
-                closeCharSelect={closeCharSelect}
-                passOnCharSelection={onCharSelection}
-            />
+            {gameStarted ? (
+                <>
+                    <img
+                        onClick={triggerClick}
+                        src={require(`../../assets/img/${codename}.png`)}
+                        alt={label + " level"}
+                    />
+                    <FinderCharSelect
+                        active={charSelectActive}
+                        closeCharSelect={closeCharSelect}
+                        passOnCharSelection={onCharSelection}
+                    />
+                </>
+            ) : (
+                <StartOverlay triggerStartState={startGame} />
+            )}
         </div>
     );
 };

@@ -250,12 +250,12 @@ const Game = () => {
                         </Sidebar>
                         <FinderContain>
                             <h1 className="fg-title">Level: {levelData.label}</h1>
-                            <button onClick={countTime} type="button">
+                            {/* <button onClick={countTime} type="button">
                                 Start
                             </button>
                             <button onClick={stopCountTime} type="button">
                                 Stop
-                            </button>
+                            </button> */}
                             <Finder
                                 codename={levelData.codename}
                                 label={levelData.label}
