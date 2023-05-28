@@ -9,10 +9,16 @@ import "./CharNav.scss";
 const CharNav = () => {
     const chars = useContext(CharContext);
 
+    console.log(chars);
+
     return (
         <ul className="fg-char-nav">
             {chars.map((char) => {
-                return <li key={uniqid()}>{char.label}</li>;
+                return (
+                    <li key={uniqid()} className={char.found ? "found" : ""}>
+                        {char.label}
+                    </li>
+                );
             })}
         </ul>
     );
