@@ -261,6 +261,7 @@ const Game = () => {
                                 label={levelData.label}
                                 passCheckSelectCoords={checkSelectCoords}
                                 gameOver={gameOver}
+                                startTheTimer={countTime}
                             />
                         </FinderContain>
                     </CharContext.Provider>

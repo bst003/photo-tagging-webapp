@@ -14,7 +14,7 @@ https://react-hot-toast.com/
 */
 
 const Finder = (props) => {
-    const { codename, label, gameOver, passCheckSelectCoords } = props;
+    const { codename, label, gameOver, passCheckSelectCoords, startTheTimer } = props;
 
     // Used to update any bounds less than 0 or greater than 100
     const adjustAbnormalBounds = (bound) => {
@@ -154,6 +154,7 @@ const Finder = (props) => {
 
     const startGame = () => {
         setGameStarted(true);
+        startTheTimer();
     };
 
     return (
