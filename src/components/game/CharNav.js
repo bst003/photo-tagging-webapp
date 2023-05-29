@@ -16,6 +16,13 @@ const CharNav = () => {
             {chars.map((char) => {
                 return (
                     <li key={uniqid()} className={char.found ? "found" : ""}>
+                        <span class="icon">
+                            <img
+                                src={require(`../../assets/img/${char.codename}-icon.png`)}
+                                alt={char.label + " icon"}
+                            />
+                        </span>
+
                         {char.label}
                     </li>
                 );
