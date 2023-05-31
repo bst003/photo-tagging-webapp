@@ -12,22 +12,26 @@ const CharNav = () => {
     console.log(chars);
 
     return (
-        <ul className="fg-char-nav">
-            {chars.map((char) => {
-                return (
-                    <li key={uniqid()} className={char.found ? "found" : ""}>
-                        <span className="icon">
-                            <img
-                                src={require(`../../assets/img/${char.codename}-icon.png`)}
-                                alt={char.label + " icon"}
-                            />
-                        </span>
+        <div>
+            <h3>Characters</h3>
+            <p>Find all three of these characters to win the game.</p>
+            <ul className="fg-char-nav">
+                {chars.map((char) => {
+                    return (
+                        <li key={uniqid()} className={char.found ? "found" : ""}>
+                            <span className="icon">
+                                <img
+                                    src={require(`../../assets/img/${char.codename}-icon.png`)}
+                                    alt={char.label + " icon"}
+                                />
+                            </span>
 
-                        {char.label}
-                    </li>
-                );
-            })}
-        </ul>
+                            {char.label}
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
     );
 };
 
