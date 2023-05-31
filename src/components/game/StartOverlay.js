@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 import "./StartOverlay.scss";
 
+/*
+Turn buttons into their own component?
+*/
+
 const StartOverlay = (props) => {
     const { triggerStartState } = props;
 
