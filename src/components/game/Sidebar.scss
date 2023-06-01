@@ -1,6 +1,9 @@
 .fg-sidebar{
     flex: 0 0 300px;
     padding: 12px;
+    position: sticky;
+    top: 16px;
+    left: 0;
     background-color: var(--darkBlue);
 
     * {

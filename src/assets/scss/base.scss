@@ -145,6 +145,42 @@ body{
         }
     }
 
+    .btns-contain{
+        margin: 24px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    
+        &.center{
+            justify-content: center;
+        }
+    
+        &.right{
+            justify-content: flex-end;
+        }
+    
+    }
+
+    .btn{
+        &__link{
+            display: block;
+            padding: 8px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            background-color: var(--yellow);
+            border: initial;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in;
+
+            &:hover,
+            &:focus{
+                background-color: var(--darkYellow);
+            }
+
+        }
+    }
+
     @media all and (max-width: 768px) {
         h1,
         .h1{

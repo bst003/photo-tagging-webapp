@@ -21,9 +21,13 @@ const StartOverlay = (props) => {
                     Find all three characters in the nav to the left in order to win the game.
                     Compete to earn the top on spot on the leaderboard for each level. Good luck!
                 </p>
-                <button type="button" onClick={startGame}>
-                    Start game
-                </button>
+                <div className="btns-contain center">
+                    <div className="btn">
+                        <button className="btn__link" type="button" onClick={startGame}>
+                            Start game
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
