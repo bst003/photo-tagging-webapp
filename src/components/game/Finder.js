@@ -10,6 +10,7 @@ import "./Finder.scss";
 
 Show Toast on guess?
 https://react-hot-toast.com/
+https://fkhadra.github.io/react-toastify/introduction
 
 */
 

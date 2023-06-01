@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
 
+import toast, { Toaster } from "react-hot-toast";
+
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore/lite";
 
 import CharContext from "../components/game/CharContext.js";
@@ -183,6 +185,8 @@ const Game = () => {
     let timerInterval = useRef();
 
     const countTime = () => {
+        toast("The game has started");
+
         timerInterval.current = setInterval(() => {
             setTimer((prevTime) => prevTime + 1);
             console.log("tick");
@@ -265,6 +269,7 @@ const Game = () => {
                             />
                         </FinderContain>
                     </CharContext.Provider>
+                    <Toaster />
                 </>
             )}
         </div>
