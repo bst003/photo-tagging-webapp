@@ -121,6 +121,9 @@ const Game = () => {
 
     // Check if the selected character is in the bounds of the coords
     const checkSelectCoords = async (coords, codename) => {
+        // dismiss all prior toasts
+        toast.dismiss();
+
         console.log("this is in Game " + codename);
         console.log(coords);
 
@@ -164,9 +167,15 @@ const Game = () => {
                     ...charData.slice(selectedCharIndex + 1, charData.length),
                 ]);
 
+                toast.success("Nice, you found " + charData[selectedCharIndex].label);
+
                 console.log(charData.length);
 
                 console.log("post char data update");
+            } else {
+                toast.error("That guess is incorrect", {
+                    duration: 2000,
+                });
             }
         });
     };
@@ -185,8 +194,6 @@ const Game = () => {
     let timerInterval = useRef();
 
     const countTime = () => {
-        toast("The game has started");
-
         timerInterval.current = setInterval(() => {
             setTimer((prevTime) => prevTime + 1);
             console.log("tick");
