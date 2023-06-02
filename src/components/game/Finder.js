@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 import FinderCharSelect from "./FinderCharSelect.js";
-import StartOverlay from "./StartOverlay.js";
+// import StartOverlay from "./StartOverlay.js";
 import WinOverlay from "./WinOverlay.js";
+import ContentBox from "./ContentBox.js";
 
 import "./Finder.scss";
 
@@ -160,8 +161,17 @@ const Finder = (props) => {
 
     return (
         <div className="fg-finder">
-            {gameOver ? <WinOverlay /> : ""}
-            {gameStarted ? (
+            {Boolean(gameOver) && (
+                <ContentBox>
+                    <h2>You Win!</h2>
+                    <p>
+                        Congrats you beat this level! You should submit your score below and check
+                        the leaderboards to see where you stand.
+                    </p>
+                </ContentBox>
+            )}
+
+            {Boolean(gameStarted) & Boolean(!gameOver) && (
                 <>
                     <img
                         onClick={triggerClick}
@@ -174,8 +184,24 @@ const Finder = (props) => {
                         passOnCharSelection={onCharSelection}
                     />
                 </>
-            ) : (
-                <StartOverlay triggerStartState={startGame} />
+            )}
+
+            {Boolean(!gameStarted) && (
+                <ContentBox>
+                    <h2>Let's Play!</h2>
+                    <p>
+                        Find all three characters in the nav to the left in order to win the game.
+                        Compete to earn the top on spot on the leaderboard for each level. Good
+                        luck!
+                    </p>
+                    <div className="btns-contain center">
+                        <div className="btn">
+                            <button className="btn__link" type="button" onClick={startGame}>
+                                Start game
+                            </button>
+                        </div>
+                    </div>
+                </ContentBox>
             )}
         </div>
     );
