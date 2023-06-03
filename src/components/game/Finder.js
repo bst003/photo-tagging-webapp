@@ -5,14 +5,6 @@ import ContentBox from "./ContentBox.js";
 
 import "./Finder.scss";
 
-/*
-
-Show Toast on guess?
-https://react-hot-toast.com/
-https://fkhadra.github.io/react-toastify/introduction
-
-*/
-
 const Finder = (props) => {
     const { codename, label, gameOver, passCheckSelectCoords, startTheTimer } = props;
 
