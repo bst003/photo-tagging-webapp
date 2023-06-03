@@ -161,7 +161,7 @@ const Finder = (props) => {
 
     return (
         <div className="fg-finder">
-            {Boolean(gameOver) && (
+            {gameOver ? (
                 <ContentBox>
                     <h2>You Win!</h2>
                     <p>
@@ -169,9 +169,9 @@ const Finder = (props) => {
                         the leaderboards to see where you stand.
                     </p>
                 </ContentBox>
-            )}
+            ) : null}
 
-            {Boolean(gameStarted) & Boolean(!gameOver) && (
+            {gameStarted & !gameOver ? (
                 <>
                     <img
                         onClick={triggerClick}
@@ -184,9 +184,9 @@ const Finder = (props) => {
                         passOnCharSelection={onCharSelection}
                     />
                 </>
-            )}
+            ) : null}
 
-            {Boolean(!gameStarted) && (
+            {!gameStarted ? (
                 <ContentBox>
                     <h2>Let's Play!</h2>
                     <p>
@@ -202,7 +202,7 @@ const Finder = (props) => {
                         </div>
                     </div>
                 </ContentBox>
-            )}
+            ) : null}
         </div>
     );
 };
