@@ -5,6 +5,12 @@ import ContentBox from "./ContentBox.js";
 
 import "./Finder.scss";
 
+/*
+
+https://github.com/2Toad/Profanity
+
+*/
+
 const Finder = (props) => {
     const { codename, label, gameOver, passCheckSelectCoords, startTheTimer } = props;
 
