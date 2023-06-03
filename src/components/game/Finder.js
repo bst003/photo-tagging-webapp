@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 import FinderCharSelect from "./FinderCharSelect.js";
-// import StartOverlay from "./StartOverlay.js";
-import WinOverlay from "./WinOverlay.js";
 import ContentBox from "./ContentBox.js";
 
 import "./Finder.scss";
