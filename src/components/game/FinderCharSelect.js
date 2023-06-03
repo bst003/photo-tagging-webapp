@@ -20,8 +20,8 @@ const FinderCharSelect = (props) => {
 
     return (
         <div className={`fg-char-select ${active ? "active" : ""}`}>
-            <button type="button" onClick={closeCharSelect}>
-                close
+            <button className="close-menu" type="button" onClick={closeCharSelect}>
+                <span className="screen-reader-text">close</span>
             </button>
             <ul>
                 {chars.reduce((accumulator, char) => {
