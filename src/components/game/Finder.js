@@ -167,7 +167,7 @@ const Finder = (props) => {
                         should submit your score below and check the leaderboards to see where you
                         stand.
                     </p>
-                    <TimeSubmissionForm />
+                    <TimeSubmissionForm time={time} levelCodeName={codename} />
                 </ContentBox>
             ) : null}
 
