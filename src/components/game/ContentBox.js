@@ -7,7 +7,7 @@ const ContentBox = (props) => {
 
     return (
         <div className="content-box">
-            <div class="content-box__inner">{children}</div>
+            <div className="content-box__inner">{children}</div>
         </div>
     );
 };
