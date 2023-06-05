@@ -39,6 +39,10 @@ body{
         font-family: var(--primaryFont);
     }
 
+    strong, b{
+        color: inherit;
+    }
+
 }
 
 .site-main{

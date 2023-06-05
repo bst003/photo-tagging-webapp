@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import FinderCharSelect from "./FinderCharSelect.js";
 import ContentBox from "./ContentBox.js";
+import TimeSubmissionForm from "./TimeSubmissionForm.js";
+import formattedTime from "../misc/formatTime";
 
 import "./Finder.scss";
 
@@ -12,7 +14,7 @@ https://github.com/2Toad/Profanity
 */
 
 const Finder = (props) => {
-    const { codename, label, gameOver, passCheckSelectCoords, startTheTimer } = props;
+    const { codename, label, gameOver, passCheckSelectCoords, startTheTimer, time } = props;
 
     // Used to update any bounds less than 0 or greater than 100
     const adjustAbnormalBounds = (bound) => {
@@ -161,9 +163,11 @@ const Finder = (props) => {
                 <ContentBox>
                     <h2>You Win!</h2>
                     <p>
-                        Congrats you beat this level! You should submit your score below and check
-                        the leaderboards to see where you stand.
+                        Congrats you beat this level in <strong>{formattedTime(time)}</strong>! You
+                        should submit your score below and check the leaderboards to see where you
+                        stand.
                     </p>
+                    <TimeSubmissionForm />
                 </ContentBox>
             ) : null}
 

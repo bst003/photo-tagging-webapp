@@ -261,18 +261,13 @@ const Game = () => {
                         </Sidebar>
                         <FinderContain>
                             <h1 className="fg-title">Level: {levelData.label}</h1>
-                            {/* <button onClick={countTime} type="button">
-                                Start
-                            </button>
-                            <button onClick={stopCountTime} type="button">
-                                Stop
-                            </button> */}
                             <Finder
                                 codename={levelData.codename}
                                 label={levelData.label}
                                 passCheckSelectCoords={checkSelectCoords}
                                 gameOver={gameOver}
                                 startTheTimer={countTime}
+                                time={timer}
                             />
                         </FinderContain>
                     </CharContext.Provider>
