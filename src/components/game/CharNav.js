@@ -12,10 +12,10 @@ const CharNav = () => {
     console.log(chars);
 
     return (
-        <div>
-            <h3>Characters</h3>
-            <p>Find all three of these characters to win the game.</p>
-            <ul className="fg-char-nav">
+        <div className="fg-char-nav">
+            <h3 class="desktop-content">Characters</h3>
+            <p class="desktop-content">Find all three of these characters to win the game.</p>
+            <ul className="fg-char-nav__list">
                 {chars.map((char) => {
                     return (
                         <li key={uniqid()} className={char.found ? "found" : ""}>

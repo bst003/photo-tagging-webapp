@@ -70,6 +70,17 @@ body{
 
     }
 
+    @media all and (max-width: 1199px){
+
+        &__inner{
+            &.sidebar-layout{
+                >div{
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
 }
 
 // Helper Classes
