@@ -161,12 +161,7 @@ const Finder = (props) => {
         <div className="fg-finder">
             {gameOver ? (
                 <ContentBox>
-                    <h2>You Win!</h2>
-                    <p>
-                        Congrats you beat this level in <strong>{formattedTime(time)}</strong>! You
-                        should submit your score below and check the leaderboards to see where you
-                        stand.
-                    </p>
+                    <h2>You Won in {formattedTime(time)}!</h2>
                     <TimeSubmissionForm time={time} levelCodeName={codename} />
                 </ContentBox>
             ) : null}
