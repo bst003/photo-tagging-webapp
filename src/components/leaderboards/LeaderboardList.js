@@ -22,7 +22,7 @@ const LeaderboardList = (props) => {
             const timesQuery = query(
                 collection(getFirestore(), "gameScores"),
                 where("levelCodeName", "==", levelCodeName),
-                orderBy("time", "desc"),
+                orderBy("time", "asc"),
                 limit(10)
             );
 
