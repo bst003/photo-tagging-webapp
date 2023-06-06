@@ -19,7 +19,7 @@ const RouteSwitch = () => {
                 </Route>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />
-                    <Route path="/leaderboard" element={<Leaderboard />} />
+                    <Route path="/leaderboards" element={<Leaderboard />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>

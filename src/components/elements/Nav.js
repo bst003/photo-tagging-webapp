@@ -45,7 +45,7 @@ const Nav = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/leaderboard">Leaderboards</Link>
+                        <Link to="/leaderboards">Leaderboards</Link>
                     </li>
                 </ul>
             </nav>
@@ -61,7 +61,7 @@ const Nav = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/leaderboard">Leaderboards</Link>
+                        <Link to="/leaderboards">Leaderboards</Link>
                     </li>
                 </ul>
             </nav>
