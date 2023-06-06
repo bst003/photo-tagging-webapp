@@ -5,12 +5,28 @@ import { profanity } from "@2toad/profanity";
 
 import formattedTime from "../misc/formatTime";
 
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore/lite";
+
 import "./TimeSubmissionForm.scss";
 
 const TimeSubmissionForm = (props) => {
     const { levelCodeName, time } = props;
 
     const [submitted, setSubmitted] = useState(false);
+
+    async function saveTime(submissionObj) {
+        try {
+            await addDoc(collection(getFirestore(), "gameScores"), {
+                ...submissionObj,
+                timestamp: serverTimestamp(),
+            });
+
+            console.log("the time has been added to the DB");
+            setSubmitted(true);
+        } catch (error) {
+            console.error("Error saving time to Firebase Database", error);
+        }
+    }
 
     const submitTime = (e) => {
         e.preventDefault();
@@ -22,11 +38,19 @@ const TimeSubmissionForm = (props) => {
             console.log("no profanity");
             const alert = form.querySelector(".form-alert");
             alert.innerText = "No profanity allowed, try using another nickname";
-        } else {
-            alert.innerText = "";
+            return;
         }
 
-        setSubmitted(true);
+        const submission = {
+            time,
+            nickname: nickname,
+            levelCodeName: levelCodeName,
+        };
+
+        alert.innerText = "";
+        saveTime(submission);
+
+        // setSubmitted(true);
 
         console.log(e);
         console.log(time);
