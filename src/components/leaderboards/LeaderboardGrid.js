@@ -3,7 +3,7 @@ import { getFirestore, collection, getDocs, query } from "firebase/firestore/lit
 
 import LeaderboardList from "./LeaderboardList";
 
-// import "./LevelSelect.scss";
+import "./LeaderboardGrid.scss";
 
 const LeaderboardGrid = () => {
     const [levelsList, setlevelsList] = useState([]);

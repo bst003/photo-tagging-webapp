@@ -1,0 +1,39 @@
+.leaderboard-grid-item{
+
+    h2{
+        text-align: center;
+    }
+
+    .leaderboard-list{
+        padding: 0px;
+        margin: 24px 0px 0px;
+
+        li{
+            counter-increment: step-counter;
+            display: flex;
+            font-size: 19px;
+            font-weight: 400;
+            gap: 8px;
+
+            &::before{
+                content: counter(step-counter);
+            }
+
+            &:not(:last-of-type){
+                margin: 0px 0px 5px;
+                padding: 0px 0px 5px;
+                border-bottom: 2px solid var(--darkBlue);
+            }
+
+            span{
+                margin-left: auto;
+                padding-left: 8px;
+                color: var(--darkBlue);
+                font-weight: 600;
+            }
+
+        }
+
+    }
+
+}

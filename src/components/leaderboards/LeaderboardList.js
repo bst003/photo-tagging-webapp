@@ -9,9 +9,9 @@ import {
     where,
 } from "firebase/firestore/lite";
 
-// import LevelSelectCTA from "./LevelSelectCTA";
+import formattedTime from "../misc/formatTime";
 
-// import "./LevelSelect.scss";
+import "./LeaderboardList.scss";
 
 const LeaderboardList = (props) => {
     const { levelLabel, levelCodeName } = props;
@@ -56,7 +56,12 @@ const LeaderboardList = (props) => {
             <h2>{levelLabel}</h2>
             <ol className="leaderboard-list">
                 {bestTimes.map((timeItem) => {
-                    return <li key={timeItem.id}>{timeItem.nickname + " " + timeItem.time}</li>;
+                    return (
+                        <li key={timeItem.id}>
+                            {timeItem.nickname}
+                            <span>{formattedTime(timeItem.time)}</span>
+                        </li>
+                    );
                 })}
             </ol>
         </div>
