@@ -15,6 +15,10 @@
         &:hover{
             color: var(--yellow);
         }
+
+        i{
+            color: inherit;
+        }
     }
 
     .site-nav-mobile-close{
