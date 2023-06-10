@@ -9,12 +9,34 @@ import "./CharNav.scss";
 const CharNav = () => {
     const chars = useContext(CharContext);
 
-    console.log(chars);
+    const toggleNav = (e) => {
+        const button = e.currentTarget;
+        const navList = button.nextSibling;
+
+        if (button.classList.contains("active")) {
+            button.innerText = "Show Chars";
+            button.classList.remove("active");
+            navList.classList.remove("active");
+        } else {
+            button.innerText = "Hide Chars";
+            button.classList.add("active");
+            navList.classList.add("active");
+        }
+    };
 
     return (
         <div className="fg-char-nav">
-            <h3 class="desktop-content">Characters</h3>
-            <p class="desktop-content">Find all three of these characters to win the game.</p>
+            <h3 className="desktop-content">Characters: </h3>
+            <p className="desktop-content">Find all three of these characters to win the game.</p>
+
+            <button
+                className="mobile-content fg-char-nav__toggle"
+                type="button"
+                onClick={toggleNav}
+            >
+                Show Chars
+            </button>
+
             <ul className="fg-char-nav__list">
                 {chars.map((char) => {
                     return (

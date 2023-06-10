@@ -1,4 +1,29 @@
 .fg-char-nav{
+    position: relative;
+
+    &__toggle{
+        background-color: initial;
+        border: initial;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &.active{
+            &::after{
+                content: "\f106";
+            }
+        }
+
+        &::after{
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-left: 6px;
+        }
+
+    }
+
     &__list{
         list-style-type: none;
         padding: 0px;
@@ -24,6 +49,7 @@
                 padding: 10px;
                 height: 60px;
                 width: 60px;
+                flex-shrink: 0;
                 background-color: var(--offWhite);
                 border-radius: 100%;
                 display: flex;
@@ -43,10 +69,17 @@
     @media all and (max-width: 1199px){
         &__list{
             display: none;
-        }
-        
-        .desktop-content{
-            display: none;
+            margin: 0px;
+            padding: 10px;
+
+            &.active{
+                display: block;
+                background-color: var(--darkBlue);
+                position: absolute;
+                top: calc(100% + 12px);
+                right: -12px;
+            }
+
         }
     }
 }

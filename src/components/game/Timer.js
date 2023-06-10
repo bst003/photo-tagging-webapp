@@ -9,7 +9,7 @@ const Timer = (props) => {
 
     return (
         <div className="fg-timer">
-            <h3>Time</h3>
+            <h3>Time: </h3>
             <p className="time">{formattedTime(time)}</p>
         </div>
     );

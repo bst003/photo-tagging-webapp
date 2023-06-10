@@ -111,6 +111,23 @@ body{
     word-wrap: normal !important;
 }
 
+.desktop-content{
+    @media all and (max-width: 1199px){
+        display: none;
+    }
+}
+
+.mobile-content{
+    display: none;
+    @media all and (max-width: 1199px){
+        display: block;
+    }
+}
+
+.width-100{
+    width: 100%;
+}
+
 // Base Typography
 ////////////////////////////////////////////////
 
@@ -134,7 +151,7 @@ body{
     
     h1,
     .h1{
-        margin: 0px;
+        margin: 0px 0px 10px;
         font-size: 48px;
     }
     

@@ -255,12 +255,17 @@ const Game = () => {
             {levelData.label && (
                 <>
                     <CharContext.Provider value={charData}>
+                        <h1 className="mobile-content center-text width-100">
+                            Level: {levelData.label}
+                        </h1>
                         <Sidebar>
                             <Timer time={timer} />
                             <CharNav />
                         </Sidebar>
                         <FinderContain>
-                            <h1 className="fg-title">Level: {levelData.label}</h1>
+                            <h1 className="desktop-content center-text">
+                                Level: {levelData.label}
+                            </h1>
                             <Finder
                                 codename={levelData.codename}
                                 label={levelData.label}
