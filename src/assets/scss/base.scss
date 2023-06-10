@@ -20,6 +20,10 @@
     --siteContentWidthInset: 840px;
 
     --siteBoxShadow: 5px 5px 20px #1b1e264d;
+
+    @media all and (max-width: 768px){
+        --siteHorizonalPadding: 15px;
+    }
 }
 
 // Site Base
