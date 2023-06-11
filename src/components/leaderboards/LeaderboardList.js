@@ -30,8 +30,6 @@ const LeaderboardList = (props) => {
 
             const timesArr = [];
             timesQuerySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-
                 const timeObj = {
                     id: doc.id,
                     nickname: doc.data().nickname,

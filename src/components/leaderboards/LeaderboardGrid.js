@@ -15,8 +15,6 @@ const LeaderboardGrid = () => {
 
             const levelsArr = [];
             levelsQuerySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-
                 const levelObj = {
                     id: doc.id,
                     codename: doc.data().codename,
