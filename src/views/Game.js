@@ -44,20 +44,6 @@ const Game = () => {
             const levelDataQuerySnapshot = await getDocs(levelDataQuery);
 
             return levelDataQuerySnapshot;
-
-            // levelDataQuerySnapshot.forEach((doc) => {
-            //     console.log(doc.id, " => ", doc.data());
-
-            //     const levelDataObj = {
-            //         label: doc.data().label,
-            //         codename: doc.data().codename,
-            //     };
-
-            //     const charDataArr = _trimCharData(doc.data().characters);
-
-            //     setLevelData(levelDataObj);
-            //     setCharData(charDataArr);
-            // });
         } catch (error) {
             console.log("Error fetching data: " + error);
         }
@@ -68,8 +54,6 @@ const Game = () => {
             const levelData = await getLevelData();
 
             levelData.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-
                 const levelDataObj = {
                     label: doc.data().label,
                     codename: doc.data().codename,
@@ -90,28 +74,17 @@ const Game = () => {
         // dismiss all prior toasts
         toast.dismiss();
 
-        console.log("this is in Game " + codename);
-        console.log(coords);
-
-        console.log(charData);
         const selectedCharIndex = charData.findIndex((char) => char.codename === codename);
-        console.log(selectedCharIndex);
 
         const levelData = await getLevelData();
         levelData.forEach((doc) => {
             const chars = doc.data().characters;
 
-            console.log(chars);
-
             const selectedChar = chars.find((char) => char.codename === codename);
-
-            console.log(selectedChar);
 
             if (!selectedChar) {
                 return;
             }
-
-            console.log("selected char exists");
 
             if (
                 coords.lowerX < selectedChar.coordX &&
@@ -119,8 +92,6 @@ const Game = () => {
                 coords.lowerY < selectedChar.coordY &&
                 coords.upperY > selectedChar.coordY
             ) {
-                console.log("character is found");
-
                 const updatedCharData = {
                     label: charData[selectedCharIndex].label,
                     codename: charData[selectedCharIndex].codename,
@@ -134,10 +105,6 @@ const Game = () => {
                 ]);
 
                 toast.success("Nice, you found " + charData[selectedCharIndex].label);
-
-                console.log(charData.length);
-
-                console.log("post char data update");
             } else {
                 toast.error("That guess is incorrect", {
                     duration: 2000,
@@ -145,13 +112,6 @@ const Game = () => {
             }
         });
     };
-
-    //////////////////////////////////////////////
-    // DELETE WHEN DONE WITH BUILD
-    //////////////////////////////////////////////
-    useEffect(() => {
-        console.log(charData);
-    }, [charData]);
 
     // Timer Functions
     ///////////////////////////
@@ -162,7 +122,6 @@ const Game = () => {
     const countTime = () => {
         timerInterval.current = setInterval(() => {
             setTimer((prevTime) => prevTime + 1);
-            console.log("tick");
         }, 1000);
     };
 
@@ -184,7 +143,6 @@ const Game = () => {
     // Run when char data changes to check if all characters are found
     useEffect(() => {
         const isGameOver = () => {
-            console.log(charData.length);
             if (charData.length === 0) {
                 return false;
             }
@@ -200,9 +158,6 @@ const Game = () => {
 
             return gameIsOver;
         };
-
-        console.log("the game is over?");
-        console.log(isGameOver());
 
         if (isGameOver()) {
             setGameOver(true);

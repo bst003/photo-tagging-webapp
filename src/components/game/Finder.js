@@ -32,14 +32,8 @@ const Finder = (props) => {
     // checked against the values that exist for each character in the
     // firebase database.
     const calcClickBounds = (clickCoords, finderDimensions) => {
-        console.log("getting bounding box for click");
-
         const boundHoriWidth = finderDimensions.width * 0.065;
         const boundHoriWidthHalf = boundHoriWidth / 2;
-        // console.log(boundHoriWidth);
-        // console.log(boundHoriWidthHalf);
-
-        // console.log(clickCoords.x);
 
         const clickBounds = {
             upperX: adjustAbnormalBounds(
@@ -56,8 +50,6 @@ const Finder = (props) => {
             ),
         };
 
-        // console.log(clickBounds);
-
         return clickBounds;
     };
 
@@ -69,11 +61,8 @@ const Finder = (props) => {
     };
 
     const getCoords = (e) => {
-        console.log(e);
         const coordX = e.nativeEvent.offsetX;
         const coordY = e.nativeEvent.offsetY;
-        console.log(`coord X: ${coordX}`);
-        console.log(`coord Y: ${coordY}`);
 
         return {
             x: Number(coordX),
@@ -84,8 +73,6 @@ const Finder = (props) => {
     const getFinderDimensions = (e) => {
         const finderWidth = e.target.width;
         const finderHeight = e.target.height;
-        console.log(`width: ${finderWidth}`);
-        console.log(`height: ${finderHeight}`);
 
         return {
             width: finderWidth,
@@ -123,26 +110,17 @@ const Finder = (props) => {
         setCharSelectCoords(e, coordsPercents);
         setCharSelectActive(true);
 
-        console.log(` x pos: ${(clickCoords.x / finderDimensions.width) * 100}`);
-        console.log(` y pos: ${(clickCoords.y / finderDimensions.height) * 100}`);
-
-        console.log(calcCoordsPercent(clickCoords, finderDimensions));
-
-        // calcClickBounds(clickCoords, finderDimensions);
         setPrevClickBounds(calcClickBounds(clickCoords, finderDimensions));
-
-        console.log(prevClickBounds);
     };
 
     const onCharSelection = (codename) => {
-        console.log("this is in Finder " + codename);
-
         passCheckSelectCoords(prevClickBounds, codename);
 
         closeCharSelect();
     };
 
     // Game Started State
+    ///////////////////////////
 
     const [gameStarted, setGameStarted] = useState(false);
 
