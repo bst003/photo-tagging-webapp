@@ -122,9 +122,9 @@ body{
 }
 
 .mobile-content{
-    display: none;
-    @media all and (max-width: 1199px){
-        display: block;
+    display: block;
+    @media all and (min-width: 1200px){
+        display: none!important;
     }
 }
 
