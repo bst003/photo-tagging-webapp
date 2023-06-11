@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getFirestore, collection, getDocs, query } from "firebase/firestore/lite";
 
 import LevelSelectCTA from "./LevelSelectCTA";
+import LoadingIcon from "../elements/LoadingIcon";
 
 import "./LevelSelect.scss";
 
@@ -37,17 +38,23 @@ const LevelSelect = () => {
     }, []);
 
     return (
-        <div className="level-select">
-            {levelsList.map((levelsListItem) => {
-                return (
-                    <LevelSelectCTA
-                        key={levelsListItem.id}
-                        codename={levelsListItem.codename}
-                        label={levelsListItem.label}
-                    />
-                );
-            })}
-        </div>
+        <>
+            {levelsList.length ? (
+                <div className="level-select">
+                    {levelsList.map((levelsListItem) => {
+                        return (
+                            <LevelSelectCTA
+                                key={levelsListItem.id}
+                                codename={levelsListItem.codename}
+                                label={levelsListItem.label}
+                            />
+                        );
+                    })}
+                </div>
+            ) : (
+                <LoadingIcon />
+            )}
+        </>
     );
 };
 

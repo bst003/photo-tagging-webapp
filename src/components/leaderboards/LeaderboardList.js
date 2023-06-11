@@ -11,6 +11,8 @@ import {
 
 import formattedTime from "../misc/formatTime";
 
+import LoadingIcon from "../elements/LoadingIcon";
+
 import "./LeaderboardList.scss";
 
 const LeaderboardList = (props) => {
@@ -52,16 +54,20 @@ const LeaderboardList = (props) => {
     return (
         <div className="leaderboard-grid-item">
             <h2>{levelLabel}</h2>
-            <ol className="leaderboard-list">
-                {bestTimes.map((timeItem) => {
-                    return (
-                        <li key={timeItem.id}>
-                            {timeItem.nickname}
-                            <span>{formattedTime(timeItem.time)}</span>
-                        </li>
-                    );
-                })}
-            </ol>
+            {bestTimes.length ? (
+                <ol className="leaderboard-list">
+                    {bestTimes.map((timeItem) => {
+                        return (
+                            <li key={timeItem.id}>
+                                {timeItem.nickname}
+                                <span>{formattedTime(timeItem.time)}</span>
+                            </li>
+                        );
+                    })}
+                </ol>
+            ) : (
+                <LoadingIcon />
+            )}
         </div>
     );
 };
