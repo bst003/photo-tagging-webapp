@@ -12,40 +12,6 @@ import Sidebar from "../components/game/Sidebar.js";
 import FinderContain from "../components/game/FinderContain.js";
 import Timer from "../components/game/Timer.js";
 
-/*
-
-Sidebar
-    - Timer Display
-    - Character Nav Display (shows which characters need to be found, gray out on find)
-FinderContain
-    - Level Name Display
-    - Finder (aka image container with onClick and client funcs)
-        - Targeter (square/circle that show area included in click)
-        - Which character nav (prompts user to choose which character is in targeter)
-
-When character is found it will need to pass the found data up to Game so it can then be passed to sidebar children
-    - Where is this data stored?
-        - Add "found" key to levelData for each character?
-        - Have a separate state array of found characters and compare to see if char is found?
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-WHAT CHAR DATA SHOULD I PASS DOWN TO FINDER AND FINDERCHARSELECT?
-    - ONLY PASS DOWN NAME AND LABEL? THEN CHECK COORDS IN GAME?
-
-THE DATA HAS TO BE VALIDATED AT "GAME" LEVEL SO THAT IT CAN PASS ANY CHANGES TO THE SIDEBAR TOO
-
-USE CONTEXT TO SET CHAR DATA ON "GAME" LEVEL?
-https://react.dev/learn/passing-data-deeply-with-context#step-3-provide-the-context
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-State for FinderCharSelect being visible?
-    - If state is active (trigger on click), then show.
-    - Set coordinates based on click coords
-    - Add close button to finderCharSelect?
-
-*/
-
 const Game = () => {
     const params = useParams();
 
