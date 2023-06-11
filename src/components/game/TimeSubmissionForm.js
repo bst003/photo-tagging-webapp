@@ -21,7 +21,6 @@ const TimeSubmissionForm = (props) => {
                 timestamp: serverTimestamp(),
             });
 
-            console.log("the time has been added to the DB");
             setSubmitted(true);
         } catch (error) {
             console.error("Error saving time to Firebase Database", error);
@@ -35,7 +34,6 @@ const TimeSubmissionForm = (props) => {
         const nickname = form.querySelector("#nickname").value;
 
         if (profanity.exists(nickname)) {
-            console.log("no profanity");
             const alert = form.querySelector(".form-alert");
             alert.innerText = "No profanity allowed, try using another nickname";
             return;
@@ -49,13 +47,6 @@ const TimeSubmissionForm = (props) => {
 
         alert.innerText = "";
         saveTime(submission);
-
-        // setSubmitted(true);
-
-        console.log(e);
-        console.log(time);
-        console.log(levelCodeName);
-        console.log(nickname);
     };
 
     return (
