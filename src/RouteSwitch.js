@@ -12,7 +12,7 @@ import NotFound from "./views/NotFound";
 
 const RouteSwitch = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/photo-tagging-webapp">
             <Routes>
                 <Route element={<SidebarLayout />}>
                     <Route path="/game/:slug" element={<Game />} />
