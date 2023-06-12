@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/photo-tagging-webapp/static/css/main.9f6b389c.css",
-    "main.js": "/photo-tagging-webapp/static/js/main.2ab396e3.js",
+    "main.js": "/photo-tagging-webapp/static/js/main.a4573afa.js",
     "static/media/snes.png": "/photo-tagging-webapp/static/media/snes.60ef65d9d279541660e0.png",
     "static/media/xbox.png": "/photo-tagging-webapp/static/media/xbox.90182244a9b8a80a1451.png",
     "static/media/xbox360.png": "/photo-tagging-webapp/static/media/xbox360.47a811f6e620f87eed7d.png",
@@ -13,10 +13,10 @@
     "static/media/spartanWithAFlag-icon.png": "/photo-tagging-webapp/static/media/spartanWithAFlag-icon.0f93232e8fbebfbefc90.png",
     "index.html": "/photo-tagging-webapp/index.html",
     "main.9f6b389c.css.map": "/photo-tagging-webapp/static/css/main.9f6b389c.css.map",
-    "main.2ab396e3.js.map": "/photo-tagging-webapp/static/js/main.2ab396e3.js.map"
+    "main.a4573afa.js.map": "/photo-tagging-webapp/static/js/main.a4573afa.js.map"
   },
   "entrypoints": [
     "static/css/main.9f6b389c.css",
-    "static/js/main.2ab396e3.js"
+    "static/js/main.a4573afa.js"
   ]
 }
