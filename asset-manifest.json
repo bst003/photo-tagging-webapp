@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/photo-tagging-webapp/static/css/main.9f6b389c.css",
+    "main.js": "/photo-tagging-webapp/static/js/main.2ab396e3.js",
+    "static/media/snes.png": "/photo-tagging-webapp/static/media/snes.60ef65d9d279541660e0.png",
+    "static/media/xbox.png": "/photo-tagging-webapp/static/media/xbox.90182244a9b8a80a1451.png",
+    "static/media/xbox360.png": "/photo-tagging-webapp/static/media/xbox360.47a811f6e620f87eed7d.png",
+    "static/media/wii.png": "/photo-tagging-webapp/static/media/wii.c2f6e096fc3700769179.png",
+    "static/media/snes-thumb.jpg": "/photo-tagging-webapp/static/media/snes-thumb.29647a76337b37bdaa99.jpg",
+    "static/media/wii-thumb.jpg": "/photo-tagging-webapp/static/media/wii-thumb.531e9b832ca0713857d5.jpg",
+    "static/media/xbox-thumb.jpg": "/photo-tagging-webapp/static/media/xbox-thumb.33245599061b7947152e.jpg",
+    "static/media/xbox360-thumb.jpg": "/photo-tagging-webapp/static/media/xbox360-thumb.074458132ebcb71e9f4c.jpg",
+    "static/media/spartanWithAFlag-icon.png": "/photo-tagging-webapp/static/media/spartanWithAFlag-icon.0f93232e8fbebfbefc90.png",
+    "index.html": "/photo-tagging-webapp/index.html",
+    "main.9f6b389c.css.map": "/photo-tagging-webapp/static/css/main.9f6b389c.css.map",
+    "main.2ab396e3.js.map": "/photo-tagging-webapp/static/js/main.2ab396e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f6b389c.css",
+    "static/js/main.2ab396e3.js"
+  ]
+}
