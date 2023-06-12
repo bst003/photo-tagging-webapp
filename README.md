@@ -16,7 +16,7 @@ Firebase database to show in the leaderboards.
 
 ## Project Link
 
-<a href="">View the project.</a>
+<a href="https://bst003.github.io/photo-tagging-webapp">View the project.</a>
 
 ### Credits
 
